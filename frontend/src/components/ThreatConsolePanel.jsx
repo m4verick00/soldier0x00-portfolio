@@ -80,6 +80,7 @@ const ThreatConsolePanel = () => {
         case 'error': return 'text-red-400';
         case 'warning': return 'text-yellow-400';
         case 'command': return 'text-cyan-400';
+        case 'link': return 'text-blue-400 underline cursor-pointer hover:text-blue-300';
         default: return 'text-gray-300';
       }
     } else {
@@ -88,6 +89,7 @@ const ThreatConsolePanel = () => {
         case 'error': return 'text-red-600';
         case 'warning': return 'text-orange-600';
         case 'command': return 'text-blue-600';
+        case 'link': return 'text-blue-600 underline cursor-pointer hover:text-blue-800';
         default: return 'text-gray-700';
       }
     }
