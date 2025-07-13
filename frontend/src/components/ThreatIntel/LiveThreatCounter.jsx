@@ -14,6 +14,35 @@ const LiveThreatCounter = () => {
     error: null
   });
 
+  const [selectedDatabase, setSelectedDatabase] = useState('nvd');
+
+  const databases = {
+    nvd: {
+      name: 'NVD API 2.0',
+      description: 'NIST National Vulnerability Database',
+      color: 'text-green-400',
+      icon: '🛡️'
+    },
+    cisa: {
+      name: 'CISA KEV',
+      description: 'Known Exploited Vulnerabilities',
+      color: 'text-blue-400',
+      icon: '🚨'
+    },
+    circl: {
+      name: 'CIRCL CVE',
+      description: 'Computer Incident Response Center',
+      color: 'text-purple-400',
+      icon: '🔍'
+    },
+    simulated: {
+      name: 'Demo Data',
+      description: 'Realistic Simulated Data',
+      color: 'text-orange-400',
+      icon: '🎯'
+    }
+  };
+
   const fetchCVEData = async () => {
     try {
       setCveData(prev => ({ ...prev, loading: true, error: null }));
