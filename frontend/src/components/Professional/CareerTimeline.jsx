@@ -18,7 +18,7 @@ const CareerTimeline = () => {
       company: 'Teaching & Mentoring',
       period: '8 months',
       type: 'education',
-      description: 'Educating next-generation cybersecurity professionals. Creating content and conducting workshops on networking and security fundamentals.',
+      description: 'Taught networking fundamentals and security training to aspiring cybersecurity professionals.',
       x: 10,
       y: 30
     },
@@ -28,7 +28,7 @@ const CareerTimeline = () => {
       company: 'Atos',
       period: 'Initial Role',
       type: 'devsecops',
-      description: 'Level 3 production support engineer working with customers across multiple regions. Handled complex technical issues and infrastructure support.',
+      description: 'Level 3 production support working with customers across multiple regions.',
       x: 30,
       y: 50
     },
@@ -38,7 +38,7 @@ const CareerTimeline = () => {
       company: 'Atos',
       period: 'Career Progression',
       type: 'hunting',
-      description: 'Advanced to threat hunting team. Proactive threat detection, behavioral analysis, and MITRE ATT&CK framework implementation.',
+      description: 'Advanced threat detection using MITRE ATT&CK framework and behavioral analysis.',
       x: 50,
       y: 20
     },
@@ -48,7 +48,7 @@ const CareerTimeline = () => {
       company: 'Allure Commerce LLP',
       period: 'Current Role',
       type: 'current',
-      description: 'Engineering secure data architectures with Java, NiFi & AI. Leading ETL pipeline development and data transformation solutions.',
+      description: 'Engineering data pipelines with Java, Apache NiFi, and AI/ML technologies.',
       x: 70,
       y: 60
     },
@@ -58,7 +58,7 @@ const CareerTimeline = () => {
       company: 'Future Goals',
       period: 'Ongoing',
       type: 'future',
-      description: 'Integrating machine learning with cybersecurity for enhanced threat detection and automated security solutions.',
+      description: 'Integrating machine learning with cybersecurity for next-gen threat detection.',
       x: 90,
       y: 40
     }
