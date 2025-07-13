@@ -121,7 +121,7 @@ const LiveThreatCounter = () => {
   };
 
   const fetchCIRCLData = async (startDate, endDate) => {
-    const circl Response = await fetch(
+    const circlResponse = await fetch(
       `https://cve.circl.lu/api/query?time_modifier=from&time_start=${startDate}&time_end=${endDate}`,
       { method: 'GET', headers: { 'Accept': 'application/json' } }
     );
