@@ -1,6 +1,6 @@
 /**
- * Security utilities for the portfolio website
- * Implements input sanitization, XSS prevention, and secure practices
+ * Comprehensive Security Utilities following OWASP Top 10
+ * Enhanced protection against injection attacks, XSS, and other threats
  */
 
 // Input sanitization for terminal commands
