@@ -6,9 +6,10 @@ const SecureTerminal = ({ onCommand }) => {
   const [commandHistory, setCommandHistory] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
   const inputRef = useRef(null);
 
-  // Initialize terminal with welcome messages
+  // Initialize terminal with welcome messages using typewriter effect
   useEffect(() => {
     if (!isInitialized) {
       const initMessages = [
@@ -21,22 +22,67 @@ const SecureTerminal = ({ onCommand }) => {
         'TYPE "help" FOR AVAILABLE COMMANDS',
       ];
 
-      let index = 0;
-      const interval = setInterval(() => {
-        if (index < initMessages.length) {
-          // Add as proper command history entry
-          setCommandHistory(prev => [...prev, {
-            command: '',
-            output: [initMessages[index]]
-          }]);
-          index++;
+      let messageIndex = 0;
+      let charIndex = 0;
+      let currentMessage = '';
+      
+      setIsTyping(true);
+      
+      const typewriterInterval = setInterval(() => {
+        if (messageIndex < initMessages.length) {
+          const fullMessage = initMessages[messageIndex];
+          
+          if (charIndex < fullMessage.length) {
+            currentMessage += fullMessage[charIndex];
+            charIndex++;
+            
+            // Update the current message being typed
+            setCommandHistory(prev => {
+              const newHistory = [...prev];
+              if (newHistory.length > 0 && newHistory[newHistory.length - 1].isTyping) {
+                newHistory[newHistory.length - 1] = {
+                  command: '',
+                  output: [currentMessage + '█'], // cursor effect
+                  isTyping: true
+                };
+              } else {
+                newHistory.push({
+                  command: '',
+                  output: [currentMessage + '█'],
+                  isTyping: true
+                });
+              }
+              return newHistory;
+            });
+          } else {
+            // Message complete, remove cursor and move to next
+            setCommandHistory(prev => {
+              const newHistory = [...prev];
+              if (newHistory.length > 0) {
+                newHistory[newHistory.length - 1] = {
+                  command: '',
+                  output: [currentMessage],
+                  isTyping: false
+                };
+              }
+              return newHistory;
+            });
+            
+            messageIndex++;
+            charIndex = 0;
+            currentMessage = '';
+            
+            // Add small delay between messages
+            setTimeout(() => {}, 200);
+          }
         } else {
-          clearInterval(interval);
+          clearInterval(typewriterInterval);
           setIsInitialized(true);
+          setIsTyping(false);
         }
-      }, 500);
+      }, 50); // Character typing speed
 
-      return () => clearInterval(interval);
+      return () => clearInterval(typewriterInterval);
     }
   }, [isInitialized]);
 
