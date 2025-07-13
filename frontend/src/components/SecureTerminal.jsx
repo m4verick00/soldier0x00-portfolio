@@ -342,7 +342,7 @@ const SecureTerminal = ({ onCommand }) => {
 
   return (
     <div 
-      className="bg-black border-2 border-green-400 rounded-lg shadow-2xl shadow-green-500/20 max-w-md mx-auto retro-terminal cursor-pointer"
+      className="bg-black border-2 border-green-400 rounded-lg shadow-2xl shadow-green-500/20 w-full max-w-md mx-auto retro-terminal cursor-pointer"
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -350,6 +350,9 @@ const SecureTerminal = ({ onCommand }) => {
         setTimeout(() => {
           inputRef.current?.focus({ preventScroll: true });
         }, 100);
+      }}
+      style={{
+        maxWidth: 'min(28rem, calc(100vw - 2rem))', // Ensure it fits on mobile
       }}
     >
       {/* Terminal Header */}
