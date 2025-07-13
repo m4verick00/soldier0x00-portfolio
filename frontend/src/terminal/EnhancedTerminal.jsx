@@ -465,7 +465,7 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
               className="flex-1 bg-transparent border-none outline-none text-green-400 font-mono"
-              placeholder="Type command..."
+              placeholder="help"
               autoFocus
             />
           </div>
