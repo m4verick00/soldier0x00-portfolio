@@ -1,5 +1,67 @@
 /* 90s Retro Cyberpunk Styles */
 
+/* CSS Variables for Theme Support */
+:root {
+  /* Dark theme (default) */
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --accent-primary: #00ff00;
+  --accent-secondary: #00ffff;
+  --border-primary: rgba(0, 255, 0, 0.3);
+  --border-secondary: rgba(0, 255, 255, 0.2);
+  --glow-primary: rgba(0, 255, 0, 0.3);
+  --glow-secondary: rgba(0, 255, 255, 0.2);
+}
+
+/* Light theme */
+.light {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --accent-primary: #007700;
+  --accent-secondary: #0077aa;
+  --border-primary: rgba(0, 119, 0, 0.4);
+  --border-secondary: rgba(0, 119, 170, 0.3);
+  --glow-primary: rgba(0, 119, 0, 0.2);
+  --glow-secondary: rgba(0, 119, 170, 0.15);
+}
+
+/* Theme-aware backgrounds */
+.theme-bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.theme-bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.theme-text-primary {
+  color: var(--text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+.theme-accent-primary {
+  color: var(--accent-primary);
+}
+
+.theme-accent-secondary {
+  color: var(--accent-secondary);
+}
+
+.theme-border-primary {
+  border-color: var(--border-primary);
+}
+
+.theme-glow-primary {
+  box-shadow: 0 0 20px var(--glow-primary);
+}
+
 /* CRT Monitor Effect */
 .retro-crt {
   position: relative;
