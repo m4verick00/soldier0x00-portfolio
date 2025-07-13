@@ -309,10 +309,15 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
     }
   }, [isBooting]);
 
-  // Auto-scroll to bottom
+  // Auto-scroll to bottom with better handling
   useEffect(() => {
     if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+      const scrollElement = terminalRef.current;
+      // Smooth scroll to bottom
+      scrollElement.scrollTo({
+        top: scrollElement.scrollHeight,
+        behavior: 'smooth'
+      });
     }
   }, [commandHistory]);
 
