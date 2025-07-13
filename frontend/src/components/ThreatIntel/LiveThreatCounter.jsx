@@ -34,12 +34,6 @@ const LiveThreatCounter = () => {
       description: 'Computer Incident Response Center',
       color: 'text-purple-400',
       icon: '🔍'
-    },
-    simulated: {
-      name: 'Demo Data',
-      description: 'Realistic Simulated Data',
-      color: 'text-orange-400',
-      icon: '🎯'
     }
   };
 
