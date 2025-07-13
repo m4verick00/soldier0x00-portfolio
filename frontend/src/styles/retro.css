@@ -1,0 +1,277 @@
+/* 90s Retro Cyberpunk Styles */
+
+/* CRT Monitor Effect */
+.retro-crt {
+  position: relative;
+}
+
+.retro-crt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: crt-flicker 0.15s linear infinite;
+}
+
+@keyframes crt-flicker {
+  0% { opacity: 1; }
+  98% { opacity: 1; }
+  99% { opacity: 0.98; }
+  100% { opacity: 1; }
+}
+
+/* Scanlines */
+.scanlines {
+  background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.02) 50%);
+  background-size: 100% 2px;
+  animation: scanline-move 0.1s linear infinite;
+}
+
+@keyframes scanline-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 2px; }
+}
+
+/* Neon Glow Effects */
+.neon-glow {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  animation: glitch-animation 0.2s;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-red 0.2s;
+  color: #ff0000;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-blue 0.2s;
+  color: #00ffff;
+  z-index: -2;
+}
+
+@keyframes glitch-animation {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-red {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, 0); }
+  40% { transform: translate(-2px, 0); }
+  60% { transform: translate(2px, 0); }
+  80% { transform: translate(-2px, 0); }
+}
+
+@keyframes glitch-blue {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 0); }
+  40% { transform: translate(2px, 0); }
+  60% { transform: translate(-2px, 0); }
+  80% { transform: translate(2px, 0); }
+}
+
+/* Retro Terminal */
+.retro-terminal {
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.3),
+    inset 0 0 20px rgba(0, 255, 0, 0.1);
+  animation: terminal-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes terminal-glow {
+  from { box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 20px rgba(0, 255, 0, 0.1); }
+  to { box-shadow: 0 0 30px rgba(0, 255, 0, 0.5), inset 0 0 30px rgba(0, 255, 0, 0.2); }
+}
+
+.retro-screen {
+  background: radial-gradient(ellipse at center, rgba(0, 255, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+/* Retro Typography */
+.retro-title {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.retro-text {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.05em;
+}
+
+.retro-description {
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+}
+
+/* Retro Buttons */
+.retro-button {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.retro-button:hover::before {
+  left: 100%;
+}
+
+/* Retro Cards */
+.retro-card {
+  box-shadow: 
+    0 0 15px rgba(0, 255, 0, 0.2),
+    inset 0 0 15px rgba(0, 255, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.retro-card:hover {
+  box-shadow: 
+    0 0 25px rgba(0, 255, 0, 0.4),
+    inset 0 0 25px rgba(0, 255, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Retro Navigation */
+.retro-nav-item {
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.retro-nav-item:hover {
+  border-color: rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+/* Retro Stats */
+.retro-stat {
+  transition: transform 0.3s ease;
+}
+
+.retro-stat:hover {
+  transform: scale(1.1);
+}
+
+/* Retro Tech Tags */
+.retro-tech-tag {
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.retro-tech-tag:hover {
+  background: linear-gradient(to right, rgba(0, 255, 0, 0.2), rgba(0, 255, 255, 0.2));
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Retro Achievements */
+.retro-achievement {
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.retro-achievement:hover {
+  background: rgba(0, 255, 0, 0.15);
+  border-color: rgba(0, 255, 0, 0.4);
+  transform: translateX(5px);
+}
+
+/* Retro Icons */
+.retro-icon {
+  filter: drop-shadow(0 0 10px currentColor);
+  transition: all 0.3s ease;
+}
+
+.retro-icon:hover {
+  filter: drop-shadow(0 0 20px currentColor);
+  transform: scale(1.2);
+}
+
+/* Retro Scroll Indicator */
+.retro-scroll {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+/* Retro Labels */
+.retro-label {
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Retro Section */
+.retro-section {
+  position: relative;
+}
+
+.retro-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23003300" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+/* Responsive Retro */
+@media (max-width: 768px) {
+  .retro-title {
+    font-size: 2rem;
+  }
+  
+  .retro-button {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .retro-card {
+    padding: 1rem;
+  }
+}
