@@ -23,12 +23,11 @@ const ThreatConsolePanel = () => {
 
     switch(action) {
       case 'pwned-check':
-        addTerminalOutput('Redirecting to Have I Been Pwned official website...', 'info');
+        addTerminalOutput('Connecting to Have I Been Pwned...', 'info');
         setTimeout(() => {
-          addTerminalOutput('🔍 OPENING OFFICIAL BREACH CHECK INTERFACE', 'success');
-          addTerminalOutput('Redirecting to https://haveibeenpwned.com/', 'info');
-          window.open('https://haveibeenpwned.com/', '_blank');
-          addTerminalOutput('Official Have I Been Pwned website opened in new tab.', 'success');
+          addTerminalOutput('🔍 BREACH CHECK INTERFACE READY', 'success');
+          addTerminalOutput('Click here to check breaches: https://haveibeenpwned.com/', 'link');
+          addTerminalOutput('Have I Been Pwned - Check if your email has been compromised', 'info');
         }, 1500);
         break;
 
