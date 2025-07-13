@@ -159,6 +159,22 @@ const SecureContact = () => {
       description: 'Technical articles & insights',
       color: 'green',
       link: 'https://soldier0x00.medium.com/'
+    },
+    {
+      icon: '📷',
+      title: 'Instagram',
+      value: '@harsha_soldier0x00',
+      description: 'Behind the scenes content',
+      color: 'pink',
+      link: 'https://www.instagram.com/harsha_soldier0x00'
+    },
+    {
+      icon: '🐦',
+      title: 'Twitter',
+      value: '@soldier0x00',
+      description: 'Tech insights & cybersecurity updates',
+      color: 'twitter',
+      link: 'https://x.com/soldier0x00'
     }
   ];
 
