@@ -301,9 +301,15 @@ const SecureTerminal = ({ onCommand }) => {
   return (
     <div 
       className="bg-black border-2 border-green-400 rounded-lg shadow-2xl shadow-green-500/20 max-w-md mx-auto retro-terminal cursor-pointer"
-      onClick={() => {
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        preventGlobalScroll();
         setIsActive(true);
-        setTimeout(() => inputRef.current?.focus(), 100);
+        setTimeout(() => {
+          inputRef.current?.focus({ preventScroll: true });
+          restoreScrollPosition();
+        }, 100);
       }}
     >
       {/* Terminal Header */}
