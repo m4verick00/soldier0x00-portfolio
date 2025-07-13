@@ -86,13 +86,14 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => scrollToSection(item.href, item.external)}
                   className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-cyan-400 ${
                     activeSection === item.id ? 'text-cyan-400' : 'text-gray-300'
                   }`}
                 >
                   {item.label}
-                  {activeSection === item.id && (
+                  {item.external && <span className="ml-1 text-xs">↗</span>}
+                  {activeSection === item.id && !item.external && (
                     <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500"></div>
                   )}
                 </button>
