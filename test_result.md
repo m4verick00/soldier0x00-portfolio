@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Update cybersecurity portfolio website with professional experience details, social media integration, security hardening, and dark/light mode toggle functionality. Specifically: 1) Update Paris 2024 Olympics role location to Bangalore and role to 'Connector Engineering' within 'AIsaac Threat Management & Cloud R&D' team, 2) Confirm Allure Commerce LLP role as remote, 3) Add Instagram and Twitter social media links, 4) Complete security hardening implementation, 5) Add dark/light mode toggle feature."
+user_problem_statement: "Enhance cybersecurity portfolio with advanced features: 1) Remove all audio/sound functionality, 2) Fix SecureTerminal typewriter effect and formatting ($ signs, green text), 3) Add 'Blog' navigation item linking to Medium, 4) Implement Live Vulnerability Counter using CIRCL CVE API with 5-minute polling, 5) Create Interactive Career Timeline component, 6) Apply premium design refinements inspired by sophisticated web design while maintaining blue team/hacker aesthetic."
 
 backend:
   - task: "Health Check Endpoints"
