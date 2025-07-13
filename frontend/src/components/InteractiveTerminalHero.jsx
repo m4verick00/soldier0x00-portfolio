@@ -36,8 +36,6 @@ const InteractiveTerminalHero = () => {
 
     return () => clearInterval(matrix);
   }, [matrixMode]);
-
-  // Terminal typing effect
   useEffect(() => {
     if (currentLineIndex < terminalLines.length) {
       const timer = setTimeout(() => {
