@@ -269,16 +269,50 @@ const Blog = () => {
             <p className="text-gray-300 mb-6">
               Get notified when new articles are published. Join the cybersecurity community!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            
+            {/* Status Messages */}
+            {newsletterStatus === 'success' && (
+              <div className="bg-green-500/20 border border-green-400/30 rounded-lg p-4 mb-6">
+                <div className="flex items-center justify-center space-x-3">
+                  <span className="text-green-400 text-xl">✅</span>
+                  <span className="text-green-400 font-medium">{newsletterMessage}</span>
+                </div>
+              </div>
+            )}
+
+            {newsletterStatus === 'error' && (
+              <div className="bg-red-500/20 border border-red-400/30 rounded-lg p-4 mb-6">
+                <div className="flex items-center justify-center space-x-3">
+                  <span className="text-red-400 text-xl">❌</span>
+                  <span className="text-red-400 font-medium">{newsletterMessage}</span>
+                </div>
+              </div>
+            )}
+            
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
                 placeholder="Enter your email"
+                required
                 className="flex-1 px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-400 transition-colors"
               />
-              <button className="px-6 py-3 bg-green-500 text-black font-semibold rounded-lg transition-all duration-300 hover:bg-green-400 hover:scale-105">
-                Subscribe
+              <button 
+                type="submit"
+                disabled={isSubscribing}
+                className="px-6 py-3 bg-green-500 text-black font-semibold rounded-lg transition-all duration-300 hover:bg-green-400 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubscribing ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                    <span>Subscribing...</span>
+                  </div>
+                ) : (
+                  'Subscribe'
+                )}
               </button>
-            </div>
+            </form>
             <p className="text-gray-500 text-sm mt-3">
               No spam, only quality cybersecurity content. Unsubscribe anytime.
             </p>
