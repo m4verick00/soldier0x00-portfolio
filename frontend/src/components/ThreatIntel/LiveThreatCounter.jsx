@@ -25,27 +25,26 @@ const LiveThreatCounter = () => {
       const todayStr = today.toISOString().split('T')[0];
       const thirtyDaysAgoStr = thirtyDaysAgo.toISOString().split('T')[0];
       
-      // Fetch recent CVEs (last 30 days) from CIRCL
-      const recentResponse = await fetch(
-        `https://cve.circl.lu/api/query?time_modifier=from&time_start=${thirtyDaysAgoStr}&time_end=${todayStr}`,
-        {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-          },
-        }
-      );
+      // NVD API 2.0 endpoint for recent CVEs (last 30 days)
+      const nvdUrl = `https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=${thirtyDaysAgoStr}T00:00:00.000&pubEndDate=${todayStr}T23:59:59.999&resultsPerPage=2000`;
       
-      if (!recentResponse.ok) {
-        throw new Error(`HTTP error! status: ${recentResponse.status}`);
+      const response = await fetch(nvdUrl, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error(`NVD API error: ${response.status}`);
       }
       
-      const recentData = await recentResponse.json();
-      const recentCount = Array.isArray(recentData) ? recentData.length : 0;
+      const data = await response.json();
+      const recentCount = data.totalResults || 0;
       
-      // For total CVEs, we'll use a reasonable estimate since the API might be rate-limited
-      // CIRCL typically has around 200,000+ CVEs total
-      const totalCount = 220000 + recentCount; // Base estimate plus recent ones
+      // For total CVEs, use a reasonable estimate based on NVD's current database size
+      // NVD typically has around 220,000+ CVEs total as of 2025
+      const totalCount = 225000 + recentCount; // Base estimate plus recent ones
       
       setCveData({
         totalCVEs: totalCount,
@@ -58,13 +57,33 @@ const LiveThreatCounter = () => {
     } catch (error) {
       console.error('Error fetching CVE data:', error);
       
-      // Fallback to mock data if API fails
+      // Try alternative: CISA KEV (Known Exploited Vulnerabilities) as fallback
+      try {
+        const cisaResponse = await fetch('https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json');
+        if (cisaResponse.ok) {
+          const cisaData = await cisaResponse.json();
+          const exploitedCount = cisaData.vulnerabilities?.length || 0;
+          
+          setCveData({
+            totalCVEs: 225000 + exploitedCount, // Estimate + exploited CVEs
+            recentCVEs: exploitedCount,
+            loading: false,
+            lastUpdated: new Date(),
+            error: 'Using CISA KEV data - Known exploited vulnerabilities'
+          });
+          return;
+        }
+      } catch (cisaError) {
+        console.error('CISA fallback also failed:', cisaError);
+      }
+      
+      // Final fallback to realistic mock data
       setCveData({
-        totalCVEs: 220547, // Realistic number
-        recentCVEs: 1247,  // Realistic recent count
+        totalCVEs: 225847, // Current realistic estimate for 2025
+        recentCVEs: Math.floor(Math.random() * 50) + 20, // 20-70 range (realistic daily average)
         loading: false,
         lastUpdated: new Date(),
-        error: 'Using cached data - API temporarily unavailable'
+        error: 'Using simulated data - External APIs temporarily unavailable'
       });
     }
   };
