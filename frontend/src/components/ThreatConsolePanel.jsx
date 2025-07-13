@@ -41,9 +41,8 @@ const ThreatConsolePanel = () => {
           addTerminalOutput('  └─ Blind SQL injection in authentication bypass', 'warning');
           addTerminalOutput('CVE-2024-ZZZZ: Medium Privilege Escalation', 'warning');
           addTerminalOutput('  └─ Local privilege escalation via kernel exploit', 'warning');
-          addTerminalOutput('Full details available at nvd.nist.gov', 'info');
-          addTerminalOutput('Opening official NVD website...', 'info');
-          window.open('https://nvd.nist.gov/vuln/search', '_blank');
+          addTerminalOutput('Click here for full CVE database: https://nvd.nist.gov/vuln/search', 'link');
+          addTerminalOutput('National Vulnerability Database - Complete CVE listings', 'info');
         }, 2500);
         break;
 
