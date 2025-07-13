@@ -67,10 +67,10 @@ const RetroExperience = () => {
       ]
     },
     {
-      title: 'AIsaac Threat Management (Connector Engineering)',
-      company: 'Atos',
-      location: 'Bengaluru, IN',
-      period: 'Paris 2024 Olympics Project Team',
+      title: 'Connector Engineering (Paris 2024 Olympics)',
+      company: 'AIsaac Threat Management & Cloud R&D',
+      location: 'Bengaluru, IN', 
+      period: 'DevSecOps - Paris 2024 Olympics Project',
       type: 'Critical Infrastructure & Log Processing Engineering',
       highlights: [
         'Selected as part of elite 7-member AIsaac Threat Management (Connector Engineering) team supporting Paris 2024 Olympics cybersecurity operations',
