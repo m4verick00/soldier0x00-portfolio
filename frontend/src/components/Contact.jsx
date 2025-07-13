@@ -1,5 +1,6 @@
 import React from 'react';
 
+const Contact = () => {
   const contactMethods = [
     {
       icon: '📧',
@@ -50,16 +51,6 @@ import React from 'react';
       link: 'https://tryhackme.com/p/soldier0x00'
     }
   ];
-
-  const getColorClasses = (color) => {
-    const colorMap = {
-      cyan: { bg: 'bg-cyan-500/20', border: 'border-cyan-400/30', text: 'text-cyan-400', button: 'bg-cyan-500' },
-      blue: { bg: 'bg-blue-500/20', border: 'border-blue-400/30', text: 'text-blue-400', button: 'bg-blue-500' },
-      purple: { bg: 'bg-purple-500/20', border: 'border-purple-400/30', text: 'text-purple-400', button: 'bg-purple-500' },
-      green: { bg: 'bg-green-500/20', border: 'border-green-400/30', text: 'text-green-400', button: 'bg-green-500' }
-    };
-    return colorMap[color] || colorMap.cyan;
-  };
 
   return (
     <section id="contact" className="py-20 bg-gray-900 relative">
