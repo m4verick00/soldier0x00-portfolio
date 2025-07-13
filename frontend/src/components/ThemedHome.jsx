@@ -32,6 +32,7 @@ const ThemedHome = () => {
       <RetroExperience />
       <RetroSkills />
       <RetroProjects />
+      <ThreatConsolePanel />
       <YouTubeFavorites />
       <Blog />
       <Contact />
