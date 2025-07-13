@@ -8,12 +8,9 @@ const Navigation = () => {
   const navItems = [
     { id: 'home', label: 'Home', href: '#' },
     { id: 'about', label: 'About', href: '#about' },
-    { id: 'experience', label: 'Experience', href: '#experience' },
-    { id: 'skills', label: 'Skills', href: '#skills' },
+    { id: 'experience', label: 'Career', href: '#experience' },
     { id: 'projects', label: 'Projects', href: '#projects' },
     { id: 'threat-console', label: 'Threat Intel', href: '#threat-console' },
-    { id: 'youtube', label: 'YouTube', href: '#youtube' },
-    { id: 'blog', label: 'Blog', href: '#blog' },
     { id: 'contact', label: 'Contact', href: '#contact' }
   ];
 
