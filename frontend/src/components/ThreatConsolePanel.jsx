@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../contexts/ThemeContext';
 
 const ThreatConsolePanel = () => {
   const [activePanel, setActivePanel] = useState('terminal');
   const [terminalOutput, setTerminalOutput] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { isDarkMode } = useTheme();
+  const isDarkMode = true; // Always dark mode
 
   const addTerminalOutput = (message, type = 'info') => {
     const timestamp = new Date().toLocaleTimeString();
