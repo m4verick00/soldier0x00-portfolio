@@ -24,7 +24,11 @@ const SecureTerminal = ({ onCommand }) => {
       let index = 0;
       const interval = setInterval(() => {
         if (index < initMessages.length) {
-          setCommandHistory(prev => [...prev, `> ${initMessages[index]}`]);
+          // Add as proper command history entry
+          setCommandHistory(prev => [...prev, {
+            command: '',
+            output: [initMessages[index]]
+          }]);
           index++;
         } else {
           clearInterval(interval);
