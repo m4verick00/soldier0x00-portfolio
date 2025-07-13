@@ -12,6 +12,7 @@ import YouTubeFavorites from './YouTubeFavorites';
 import Blog from './Blog';
 import Contact from './Contact';
 import ThemeToggle from './ThemeToggle';
+import SecurityAlert from './SecurityAlert';
 
 const ThemedHome = () => {
   const { isDarkMode } = useTheme();
