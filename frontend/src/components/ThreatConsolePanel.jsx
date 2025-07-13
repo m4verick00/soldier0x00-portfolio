@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LiveThreatCounter from './ThreatIntel/LiveThreatCounter';
 
 const ThreatConsolePanel = () => {
   const [activePanel, setActivePanel] = useState('terminal');
