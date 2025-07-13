@@ -8,6 +8,22 @@ const SecureTerminal = ({ onCommand }) => {
   const [isInitialized, setIsInitialized] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const inputRef = useRef(null);
+  const terminalContainerRef = useRef(null);
+
+  // Store original scroll position to prevent global scrolling
+  const originalScrollPosition = useRef({ x: 0, y: 0 });
+
+  // Prevent any global page scrolling
+  const preventGlobalScroll = () => {
+    originalScrollPosition.current = {
+      x: window.pageXOffset,
+      y: window.pageYOffset
+    };
+  };
+
+  const restoreScrollPosition = () => {
+    window.scrollTo(originalScrollPosition.current.x, originalScrollPosition.current.y);
+  };
 
   // Initialize terminal with welcome messages using typewriter effect
   useEffect(() => {
