@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { newsletterAPI, handleApiError } from '../services/api';
 
 const Blog = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
