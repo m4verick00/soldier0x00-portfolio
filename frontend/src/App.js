@@ -1,38 +1,63 @@
-import { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+// Import components
+import Navigation from "./components/Navigation";
+import TerminalHero from "./components/TerminalHero";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import YouTubeFavorites from "./components/YouTubeFavorites";
+import Blog from "./components/Blog";
+import Contact from "./components/Contact";
 
 const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="min-h-screen bg-black text-white">
+      <Navigation />
+      <TerminalHero />
+      <About />
+      <Experience />
+      <Skills />
+      <Projects />
+      <YouTubeFavorites />
+      <Blog />
+      <Contact />
+      
+      {/* Footer */}
+      <footer className="bg-black border-t border-gray-800 py-8">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="text-gray-400 text-sm mb-4 md:mb-0">
+              © 2024 soldier0x00. Built with React & Passion for Cybersecurity.
+            </div>
+            <div className="flex space-x-6">
+              <a
+                href="https://soldier0x00.medium.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+              >
+                Medium
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
