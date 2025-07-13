@@ -327,7 +327,7 @@ const LiveThreatCounter = () => {
 
       {/* Data Source */}
       <div className="mt-3 text-xs text-gray-500 font-mono text-center">
-        Data source: NVD API 2.0 | NIST National Vulnerability Database
+        Data source: {databases[selectedDatabase].name} | {databases[selectedDatabase].description}
       </div>
     </div>
   );
