@@ -16,9 +16,17 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import ThemeToggle from "./components/ThemeToggle";
 
+import { useTheme } from "./contexts/ThemeContext";
+
 const Home = () => {
+  const { isDarkMode } = useTheme();
+  
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={`min-h-screen transition-colors duration-300 ${
+      isDarkMode 
+        ? 'bg-black text-white' 
+        : 'bg-gray-50 text-gray-900'
+    }`}>
       <ThemeToggle />
       <Navigation />
       <InteractiveTerminalHero />
