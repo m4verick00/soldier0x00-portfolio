@@ -16,39 +16,39 @@ const CareerTimeline = () => {
       id: 1,
       title: 'Cybersecurity Instructor',
       company: 'Teaching & Mentoring',
-      period: '2021 - Present',
+      period: '8 months',
       type: 'education',
-      description: 'Educating next-generation cybersecurity professionals. Creating content and conducting workshops.',
+      description: 'Educating next-generation cybersecurity professionals. Creating content and conducting workshops on networking and security fundamentals.',
       x: 10,
-      y: 20
+      y: 30
     },
     {
       id: 2,
-      title: 'Cyber Threat Hunter',
-      company: 'Allure Commerce LLP',
-      period: '2022 - 2023',
-      type: 'hunting',
-      description: 'Advanced persistent threat detection and response. SIEM/SOAR implementation and threat intelligence.',
+      title: 'Production Support Engineer (L3)',
+      company: 'Atos',
+      period: 'Initial Role',
+      type: 'devsecops',
+      description: 'Level 3 production support engineer working with customers across multiple regions. Handled complex technical issues and infrastructure support.',
       x: 30,
       y: 50
     },
     {
       id: 3,
-      title: 'DevSecOps Engineer (Paris 2024)',
-      company: 'AIsaac Threat Management',
-      period: 'Jan 2024 - Aug 2024',
-      type: 'devsecops',
-      description: 'Paris 2024 Olympics - Connector Engineering. Secure cloud infrastructure for global event monitoring.',
+      title: 'Cyber Threat Hunter',
+      company: 'Atos',
+      period: 'Career Progression',
+      type: 'hunting',
+      description: 'Advanced to threat hunting team. Proactive threat detection, behavioral analysis, and MITRE ATT&CK framework implementation.',
       x: 50,
-      y: 30
+      y: 20
     },
     {
       id: 4,
       title: 'Data Integration Specialist',
-      company: 'Atos',
-      period: 'June 2023 - Present',
+      company: 'Allure Commerce LLP',
+      period: 'Current Role',
       type: 'current',
-      description: 'Engineering secure data architectures with Java, NiFi & AI. Leading ETL pipeline development.',
+      description: 'Engineering secure data architectures with Java, NiFi & AI. Leading ETL pipeline development and data transformation solutions.',
       x: 70,
       y: 60
     },
@@ -58,7 +58,7 @@ const CareerTimeline = () => {
       company: 'Future Goals',
       period: 'Ongoing',
       type: 'future',
-      description: 'Integrating machine learning with cybersecurity for enhanced threat detection capabilities.',
+      description: 'Integrating machine learning with cybersecurity for enhanced threat detection and automated security solutions.',
       x: 90,
       y: 40
     }
