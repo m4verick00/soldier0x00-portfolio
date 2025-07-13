@@ -6,35 +6,35 @@ const RetroProjects = () => {
 
   const projects = [
     {
-      title: 'TAG - The Autonomous Guardian',
+      title: 'AI-Powered Cyber Defense Research',
       category: 'AI & Cybersecurity',
-      status: 'DEVELOPING',
-      description: 'Building an autonomous cybersecurity AI guardian to understand AI implementation in cybersecurity operations, threat hunting workflows, and automated security response.',
-      technologies: ['Python', 'Machine Learning', 'NLP', 'Local LLM', 'Cybersecurity APIs'],
+      status: 'RESEARCHING',
+      description: 'Exploring the integration of artificial intelligence with cybersecurity operations to enhance threat detection, automate incident response, and develop next-generation defensive capabilities.',
+      technologies: ['Python', 'Machine Learning', 'NLP', 'Deep Learning', 'Cybersecurity APIs'],
       features: [
-        'Autonomous threat detection and analysis',
-        'Intelligent security operations assistant',
-        'Automated incident response workflows',
-        'Local deployment for data privacy',
-        'Integration with SIEM and security tools',
+        'AI-driven threat pattern recognition',
+        'Automated security analysis workflows',
+        'Machine learning for anomaly detection',
+        'Intelligent security operations enhancement',
+        'Research-based cybersecurity AI applications',
         'Advanced threat intelligence correlation'
       ],
       goals: [
-        'Understand AI implementation in cybersecurity',
-        'Create intelligent automation for threat hunting',
-        'Develop autonomous security guardian capabilities',
-        'Build next-generation security AI assistant'
+        'Master AI implementation in cybersecurity',
+        'Develop intelligent threat detection systems',
+        'Research automated security response capabilities',
+        'Build foundation for next-gen cyber defense'
       ],
       icon: '🛡️',
       color: 'green',
       ascii: `
 ╔══════════════════════════════════════╗
-║  ████████╗ █████╗  ██████╗           ║
-║  ╚══██╔══╝██╔══██╗██╔════╝           ║
-║     ██║   ███████║██║  ███╗          ║
-║     ██║   ██╔══██║██║   ██║          ║
-║     ██║   ██║  ██║╚██████╔╝          ║
-║     ╚═╝   ╚═╝  ╚═╝ ╚═════╝           ║
+║   █████╗ ██╗      ██████╗██╗   ██╗   ║
+║  ██╔══██╗██║     ██╔════╝╚██╗ ██╔╝   ║
+║  ███████║██║     ██║      ╚████╔╝    ║
+║  ██╔══██║██║     ██║       ╚██╔╝     ║
+║  ██║  ██║██║     ╚██████╗   ██║      ║
+║  ╚═╝  ╚═╝╚═╝      ╚═════╝   ╚═╝      ║
 ╚══════════════════════════════════════╝`
     },
     {
