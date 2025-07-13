@@ -8,7 +8,7 @@ const RetroExperience = () => {
       title: 'Data Integration Specialist',
       company: 'Allure Commerce LLP',
       location: 'Remote/Hybrid',
-      period: 'Present',
+      period: 'June 2025 – Present',
       type: 'Data Architecture & AI Development',
       highlights: [
         'Engineer sophisticated data pipelines using Apache NiFi for high-volume data processing and transformation',
@@ -29,42 +29,62 @@ const RetroExperience = () => {
       title: 'Cyber Threat Hunter',
       company: 'Atos',
       location: 'Bengaluru, IN',
-      period: 'Threat Hunting Team',
-      type: 'Advanced Threat Detection & Analytics',
+      period: 'April 2022 – June 2025',
+      type: 'Managed Detection & Response - Threat Hunting',
       highlights: [
-        'Executed advanced threat hunting operations across diverse security models and attack vectors',
-        'Analyzed complex security events from Firewalls, VPN, O365, IDS/IPS, and malicious URL detection systems',
-        'Investigated DNS-DGA (Domain Generation Algorithm) patterns and conducted deep audit log analysis',
-        'Developed custom hunting queries and detection logic for emerging threat patterns',
-        'Collaborated with SOC teams to enhance threat detection capabilities and reduce false positives',
-        'Specialized in behavioral analysis of advanced persistent threats and lateral movement detection'
+        'Proactively hunted advanced threats by analyzing behavioral patterns, SIEM logs, and threat intelligence to uncover persistence mechanisms, C2 activity, lateral movement, and data exfiltration risks',
+        'Analyzed emerging APT tactics, malware trends, and attacker behaviors to update detection strategies and preemptively close security gaps',
+        'Mapped adversarial techniques to MITRE ATT&CK, designing threat models to prioritize risks and recommend mitigations that harden organizational defenses',
+        'Optimized threat-hunting efficiency by refining detection rules, correlating logs from SIEM/EDR/cloud tools, and streamlining workflows to accelerate incident investigations',
+        'Collaborated with security teams to share intelligence-driven insights, strengthen detection capabilities, and improve organization resilience against evolving threats'
       ],
-      technologies: ['Threat Hunting', 'Firewall Analysis', 'VPN Security', 'O365 Security', 'IDS/IPS', 'DNS-DGA', 'Audit Logs'],
+      technologies: ['SIEM', 'EDR', 'MITRE ATT&CK', 'Threat Intelligence', 'Log Analysis', 'APT Detection'],
       achievements: [
-        'Successfully detected and mitigated multiple APT campaigns using advanced hunting techniques',
-        'Reduced mean time to detection (MTTD) through optimized hunting workflows',
-        'Contributed to threat intelligence feeds with actionable indicators of compromise (IoCs)'
+        '96% SLA achievement in client case management',
+        '99.99% uptime during Paris 2024 Olympics security operations',
+        '30% increase in log processing speed optimization'
       ]
     },
     {
-      title: 'Operations Engineer - AIsaac SIEM & SOAR',
-      company: 'Atos DevSecOps Team',
+      title: 'DevSecOps Engineer - AIsaac SIEM & SOAR',
+      company: 'Atos',
       location: 'Bengaluru, IN', 
-      period: 'Production Support L3',
-      type: 'SIEM Architecture & Data Engineering',
+      period: 'AIsaac Threat Management & Cloud R&D',
+      type: 'SIEM Architecture & Production Operations',
       highlights: [
         'Architected and maintained backend infrastructure for AIsaac proprietary SIEM & SOAR platform',
-        'Engineered Apache NiFi deployments for massive-scale log ingestion from diverse security sources',
-        'Developed custom connectors and parsers for CrowdStrike, networking devices, routers, switches, and cloud endpoints',
-        'Designed data transformation pipelines ensuring seamless log parsing and enrichment for threat intelligence',
-        'Managed production servers supporting real-time security analytics, threat hunting, and security data lake operations',
-        'Mastered end-to-end SIEM architecture understanding how enterprise security monitoring ecosystems function'
+        'Utilized Apache NiFi for data integration, managed scalable infrastructure on Azure and AWS, optimized RabbitMQ for improved throughput',
+        'Deployed high-availability Kubernetes cluster on AWS using EKS for enterprise-scale security operations',
+        'Employed in-house SIEM tools for threat detection and log analysis, handling incidents for diverse devices including EDR, XDR, Firewalls, and Office 365 services',
+        'Managed client cases on Wrike and ServiceNOW, achieving 96% SLA, and created KBS articles for complex issues',
+        'Demonstrated expertise in troubleshooting system fundamentals while implementing Prometheus for proactive monitoring, incident response, and vulnerability patching'
       ],
-      technologies: ['AIsaac SIEM', 'Apache NiFi', 'Custom Connectors', 'CrowdStrike', 'Network Security', 'Cloud Security', 'DevSecOps'],
+      technologies: ['AIsaac SIEM', 'Apache NiFi', 'Kubernetes', 'AWS', 'Azure', 'RabbitMQ', 'Prometheus', 'DevSecOps'],
       achievements: [
-        'Achieved 99.99% uptime for critical log ingestion infrastructure during Paris 2024 Olympics',
+        'Designed end-to-end SIEM architecture understanding applicable to any enterprise security platform',
         'Optimized log processing throughput by 40% through custom connector development',
-        'Gained comprehensive understanding of SIEM architecture applicable to any enterprise security platform'
+        'Gained comprehensive understanding of SIEM data flows and threat detection pipelines'
+      ]
+    },
+    {
+      title: 'Security Operations Specialist',
+      company: 'Atos',
+      location: 'Paris, France (Remote)',
+      period: 'Paris 2024 Olympics Project',
+      type: 'Critical Infrastructure Protection',
+      highlights: [
+        'Contributed to Atos role as Official Cybersecurity Services and Operations Supporter for Paris 2024 Olympics and Paralympics',
+        'Part of critical task force responsible for application and system stability for uninterrupted log flow and parsing',
+        'Ensured uninterrupted log processing and enrichment for the Games, optimizing Java-based connectors/parsers to deliver near real-time log visibility',
+        'Achieved 99.99% uptime for critical log parsing systems during peak Olympic event periods, safeguarding the Games against cyber threats',
+        'Implemented performance optimizations resulting in 30% increase in log processing speed, enabling faster threat detection and response'
+      ],
+      technologies: ['Java', 'Log Processing', 'Real-time Analytics', 'SOC Integration', 'Critical Infrastructure'],
+      achievements: [
+        '99.99% uptime for critical log parsing systems during Olympic Games',
+        '30% increase in log processing speed optimization',
+        'Zero security incidents during Olympic Games period',
+        'Successfully supported global-scale cybersecurity operations'
       ]
     }
   ];
