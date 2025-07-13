@@ -74,10 +74,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%);
+  background: linear-gradient(transparent 50%, var(--glow-primary) 50%);
   background-size: 100% 4px;
   pointer-events: none;
   animation: crt-flicker 0.15s linear infinite;
+  opacity: 0.5;
+}
+
+/* Light mode CRT effect */
+.light .retro-crt::before {
+  background: linear-gradient(transparent 50%, rgba(0, 119, 0, 0.1) 50%);
+  opacity: 0.3;
 }
 
 @keyframes crt-flicker {
