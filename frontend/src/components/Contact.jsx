@@ -58,7 +58,7 @@ const Contact = () => {
     {
       icon: '📧',
       title: 'Email',
-      value: 'soldier0x00@cyberspace.com',
+      value: 'cybersoldier0x00@protonmail.com',
       description: 'Get in touch for collaborations',
       color: 'cyan'
     },
