@@ -1,7 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { newsletterAPI, handleApiError } from '../services/api';
 
 const Blog = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState('');
+  const [newsletterMessage, setNewsletterMessage] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubscribing(true);
+    setNewsletterStatus('');
+    setNewsletterMessage('');
+    
+    try {
+      const response = await newsletterAPI.subscribe(newsletterEmail);
+      
+      setNewsletterStatus('success');
+      setNewsletterMessage(response.message);
+      setNewsletterEmail('');
+      
+      // Clear status after 5 seconds
+      setTimeout(() => {
+        setNewsletterStatus('');
+        setNewsletterMessage('');
+      }, 5000);
+      
+    } catch (error) {
+      const errorInfo = handleApiError(error);
+      setNewsletterStatus('error');
+      setNewsletterMessage(errorInfo.message);
+      
+      // Clear error after 5 seconds
+      setTimeout(() => {
+        setNewsletterStatus('');
+        setNewsletterMessage('');
+      }, 5000);
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
 
   // Mock blog posts - in real implementation, these would come from Medium API or RSS feed
   const blogPosts = [
