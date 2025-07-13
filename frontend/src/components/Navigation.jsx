@@ -39,7 +39,12 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href) => {
+  const scrollToSection = (href, external = false) => {
+    if (external) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    
     if (href === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
