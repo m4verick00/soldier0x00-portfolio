@@ -5,7 +5,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { sanitizeInput } from '../utils/security';
-import { audioManager } from '../audio/AudioManager';
 import FileSystem from './FileSystem';
 
 const EnhancedTerminal = ({ onCommand, className = "" }) => {
