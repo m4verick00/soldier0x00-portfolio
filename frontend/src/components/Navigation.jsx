@@ -100,24 +100,6 @@ const Navigation = () => {
               ))}
             </div>
 
-            {/* Desktop CTA */}
-            <div className="hidden md:flex items-center space-x-4">
-              <a
-                href="https://soldier0x00.medium.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 border border-cyan-400 text-cyan-400 rounded-lg font-medium transition-all duration-300 hover:bg-cyan-400 hover:text-black hover:scale-105"
-              >
-                Medium Blog
-              </a>
-              <button
-                onClick={() => scrollToSection('#contact')}
-                className="px-4 py-2 bg-cyan-500 text-black rounded-lg font-medium transition-all duration-300 hover:bg-cyan-400 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50"
-              >
-                Hire Me
-              </button>
-            </div>
-
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
