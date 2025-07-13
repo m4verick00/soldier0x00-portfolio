@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import SecureTerminal from './SecureTerminal';
 
 const InteractiveTerminalHero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -6,141 +7,18 @@ const InteractiveTerminalHero = () => {
   const [showCursor, setShowCursor] = useState(true);
   const [matrixChars, setMatrixChars] = useState([]);
   const [glitchActive, setGlitchActive] = useState(false);
-  const [commandInput, setCommandInput] = useState('');
-  const [commandHistory, setCommandHistory] = useState([]);
-  const [showCommandLine, setShowCommandLine] = useState(false);
   const [konami, setKonami] = useState([]);
   const [matrixMode, setMatrixMode] = useState(false);
-  const inputRef = useRef(null);
 
   const terminalLines = [
-    '> INITIALIZING NEURAL INTERFACE...',
-    '> LOADING THREAT INTELLIGENCE MATRIX...',
-    '> CONNECTING TO CYBER GRID...',
+    '> INITIALIZING SECURE NEURAL INTERFACE...',
+    '> LOADING ENCRYPTED THREAT INTELLIGENCE...',
+    '> ESTABLISHING SECURE CYBER GRID CONNECTION...',
     '> WELCOME TO soldier0x00.CYBERSPACE',
-    '> STATUS: JACK IN COMPLETE',
-    '> TYPE "help" FOR COMMANDS',
-    '> READY FOR INPUT...',
+    '> SECURITY STATUS: MAXIMUM ENCRYPTION',
+    '> TERMINAL STATUS: HARDENED & READY',
+    '> TYPE COMMANDS IN SECURE TERMINAL BELOW',
   ];
-
-  const commands = {
-    help: () => [
-      'AVAILABLE COMMANDS:',
-      '  help     - Show this help menu',
-      '  whoami   - Display user information',
-      '  ls       - List skills and projects',
-      '  hack     - Initialize hacking sequence',
-      '  matrix   - Enter the Matrix',
-      '  clear    - Clear terminal',
-      '  skills   - Display skill tree',
-      '  social   - Show social links',
-      '  easter   - Find hidden features',
-      '  exit     - Exit command mode',
-    ],
-    whoami: () => [
-      'USER PROFILE LOADED...',
-      'USERNAME: soldier0x00',
-      'REAL_NAME: Sai Harsha Vardhan',
-      'ROLE: Data Integration Specialist',
-      'PREV_ROLE: Cyber Threat Hunter',
-      'CLEARANCE: TOP_SECRET',
-      'SKILLS: SIEM, Threat Hunting, Data Engineering',
-      'STATUS: ONLINE',
-      'LOCATION: Cyberspace',
-    ],
-    ls: () => [
-      'DIRECTORY LISTING:',
-      'drwxr-xr-x  skills/',
-      'drwxr-xr-x  projects/',
-      'drwxr-xr-x  experience/',
-      '-rw-r--r--  threat_hunting.exe',
-      '-rw-r--r--  data_engineering.dll',
-      '-rw-r--r--  ai_neural.sys',
-      '-rw-r--r--  resume.pdf',
-      'Total: 8 items',
-    ],
-    hack: () => [
-      '[INITIALIZING HACK SEQUENCE...]',
-      'Scanning for vulnerabilities...',
-      'Found 0 vulnerabilities (You\'re secure!)',
-      '████████████████ 100%',
-      '[HACK COMPLETE]',
-      'RESULT: System hardened successfully!',
-      'Welcome to the team, fellow hacker! 🕶️',
-    ],
-    matrix: () => {
-      setMatrixMode(true);
-      setTimeout(() => setMatrixMode(false), 5000);
-      return [
-        '[ENTERING THE MATRIX...]',
-        'Reality.exe has stopped working',
-        'Loading alternate reality...',
-        'Welcome to the real world, Neo.',
-      ];
-    },
-    clear: () => {
-      setCommandHistory([]);
-      return [];
-    },
-    skills: () => [
-      'SKILL TREE LOADED:',
-      '├── Cybersecurity',
-      '│   ├── Threat Hunting ████████████ 95%',
-      '│   ├── SIEM/SOAR     ███████████  90%',
-      '│   └── Forensics     ██████████   85%',
-      '├── Data Engineering',
-      '│   ├── Apache NiFi   ████████████ 88%',
-      '│   ├── Java          ██████████   82%',
-      '│   └── ETL Tools     █████████    80%',
-      '└── AI/ML',
-      '    ├── Algorithms    ████████     75%',
-      '    └── Neural Nets   ███████      70%',
-    ],
-    social: () => [
-      'SOCIAL NETWORK LINKS:',
-      'LinkedIn: https://linkedin.com/in/sai-harsha-vardhan/',
-      'TryHackMe: https://tryhackme.com/p/soldier0x00',
-      'Medium: https://soldier0x00.medium.com/',
-      'GitHub: [CLASSIFIED]',
-      'Status: All systems operational',
-    ],
-    easter: () => [
-      'EASTER EGG FINDER ACTIVATED...',
-      'Hint: Try the Konami Code ↑↑↓↓←→←→BA',
-      'Hidden command: Type "soldier0x00"',
-      'Secret: Click my name for glitch effect',
-      'Pro tip: Matrix mode auto-exits after 5s',
-      'Keep exploring, there\'s more! 🥚',
-    ],
-    soldier0x00: () => [
-      '    ███████╗ ██████╗ ██╗     ██████╗ ██╗███████╗██████╗ ',
-      '    ██╔════╝██╔═══██╗██║     ██╔══██╗██║██╔════╝██╔══██╗',
-      '    ███████╗██║   ██║██║     ██║  ██║██║█████╗  ██████╔╝',
-      '    ╚════██║██║   ██║██║     ██║  ██║██║██╔══╝  ██╔══██╗',
-      '    ███████║╚██████╔╝███████╗██████╔╝██║███████╗██║  ██║',
-      '    ╚══════╝ ╚═════╝ ╚══════╝╚═════╝ ╚═╝╚══════╝╚═╝  ╚═╝',
-      '',
-      '    ████████╗██╗  ██╗██████╗ ███████╗ █████╗ ████████╗',
-      '    ╚══██╔══╝██║  ██║██╔══██╗██╔════╝██╔══██╗╚══██╔══╝',
-      '       ██║   ███████║██████╔╝█████╗  ███████║   ██║   ',
-      '       ██║   ██╔══██║██╔══██╗██╔══╝  ██╔══██║   ██║   ',
-      '       ██║   ██║  ██║██║  ██║███████╗██║  ██║   ██║   ',
-      '       ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ',
-      '',
-      '           ██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ ',
-      '           ██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗',
-      '           ███████║██║   ██║██╔██╗ ██║   ██║   █████╗  ██████╔╝',
-      '           ██╔══██║██║   ██║██║╚██╗██║   ██║   ██╔══╝  ██╔══██╗',
-      '           ██║  ██║╚██████╔╝██║ ╚████║   ██║   ███████╗██║  ██║',
-      '           ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝',
-      '',
-      'The Matrix has you... but you found the truth! 🕶️',
-    ],
-    exit: () => {
-      setShowCommandLine(false);
-      return ['Command mode disabled. Click terminal to re-enable.'];
-    },
-  };
 
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
 
@@ -178,9 +56,6 @@ const InteractiveTerminalHero = () => {
       const timer = setTimeout(() => {
         setDisplayText(prev => prev + terminalLines[currentLineIndex] + '\n');
         setCurrentLineIndex(prev => prev + 1);
-        if (currentLineIndex === terminalLines.length - 1) {
-          setTimeout(() => setShowCommandLine(true), 1000);
-        }
       }, 700);
       return () => clearTimeout(timer);
     }
@@ -214,7 +89,6 @@ const InteractiveTerminalHero = () => {
   const triggerKonamiEaster = () => {
     setGlitchActive(true);
     setMatrixMode(true);
-    setCommandHistory(prev => [...prev, { command: 'KONAMI CODE ACTIVATED!', output: commands.soldier0x00() }]);
     setTimeout(() => {
       setGlitchActive(false);
       setMatrixMode(false);
@@ -226,23 +100,10 @@ const InteractiveTerminalHero = () => {
     setTimeout(() => setGlitchActive(false), 200);
   };
 
-  const handleCommand = (cmd) => {
-    const trimmedCmd = cmd.trim().toLowerCase();
-    if (commands[trimmedCmd]) {
-      const output = commands[trimmedCmd]();
-      setCommandHistory(prev => [...prev, { command: cmd, output }]);
-    } else {
-      setCommandHistory(prev => [...prev, { 
-        command: cmd, 
-        output: [`Command not found: ${cmd}`, 'Type "help" for available commands'] 
-      }]);
-    }
-    setCommandInput('');
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleCommand(commandInput);
+  const handleTerminalCommand = (command) => {
+    if (command === 'matrix') {
+      setMatrixMode(true);
+      setTimeout(() => setMatrixMode(false), 5000);
     }
   };
 
@@ -272,7 +133,7 @@ const InteractiveTerminalHero = () => {
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center">
           <div className="text-green-400 text-center animate-pulse">
             <div className="text-4xl font-mono mb-4">ENTERING THE MATRIX...</div>
-            <div className="text-lg font-mono">Reality.exe has stopped working</div>
+            <div className="text-lg font-mono">🔒 SECURE CONNECTION ESTABLISHED 🔒</div>
           </div>
         </div>
       )}
@@ -304,7 +165,7 @@ const InteractiveTerminalHero = () => {
               </div>
               
               <p className="text-base sm:text-lg text-gray-400 max-w-xl mb-8 leading-relaxed retro-description">
-                <span className="text-green-400">&gt;</span> Engineering data architectures with Java, NiFi & AI
+                <span className="text-green-400">&gt;</span> Engineering secure data architectures with Java, NiFi & AI
                 <br />
                 <span className="text-cyan-400">&gt;</span> Building ML algorithms for enhanced threat detection
                 <br />
@@ -349,61 +210,23 @@ const InteractiveTerminalHero = () => {
             </div>
           </div>
 
-          {/* Right Side - Interactive Terminal */}
+          {/* Right Side - Secure Interactive Terminal */}
           <div className="order-1 lg:order-2">
-            <div 
-              className="bg-black border-2 border-green-400 rounded-lg shadow-2xl shadow-green-500/20 max-w-md mx-auto retro-terminal cursor-pointer"
-              onClick={() => {
-                setShowCommandLine(true);
-                setTimeout(() => inputRef.current?.focus(), 100);
-              }}
-            >
-              {/* Terminal Header */}
-              <div className="flex items-center justify-between px-4 py-3 bg-green-400/10 border-b-2 border-green-400 rounded-t-lg">
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-                </div>
-                <span className="text-green-400 text-xs sm:text-sm font-mono tracking-wider">NEURAL_INTERFACE_v3.0</span>
-              </div>
-              
-              {/* Terminal Content */}
-              <div className="p-4 sm:p-6 h-64 sm:h-80 font-mono text-green-400 text-xs sm:text-sm bg-black retro-screen overflow-y-auto">
-                <pre className="whitespace-pre-wrap">
-                  {displayText}
-                  {commandHistory.map((entry, idx) => (
-                    <div key={idx}>
-                      <div className="text-cyan-400">$ {entry.command}</div>
-                      {entry.output.map((line, lineIdx) => (
-                        <div key={lineIdx} className="text-green-400">{line}</div>
-                      ))}
-                    </div>
-                  ))}
-                  {showCommandLine && (
-                    <div className="flex items-center">
-                      <span className="text-cyan-400">$ </span>
-                      <input
-                        ref={inputRef}
-                        type="text"
-                        value={commandInput}
-                        onChange={(e) => setCommandInput(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                        className="bg-transparent border-none outline-none text-green-400 font-mono flex-1 ml-1"
-                        autoFocus
-                        placeholder="Type 'help' for commands..."
-                      />
-                    </div>
-                  )}
-                  {showCursor && !showCommandLine && <span className="bg-green-400 text-black animate-pulse">█</span>}
+            <div className="mb-4">
+              <div className="text-center">
+                <pre className="text-green-400 text-xs font-mono mb-4 hidden sm:block">
+{displayText}
+{showCursor && <span className="bg-green-400 text-black animate-pulse">█</span>}
                 </pre>
               </div>
             </div>
+            
+            <SecureTerminal onCommand={handleTerminalCommand} />
 
-            {/* Terminal Hint */}
+            {/* Security Notice */}
             <div className="text-center mt-4">
               <div className="text-green-400/60 text-xs font-mono animate-pulse">
-                Click terminal to enable interactive mode
+                🔒 Secured with military-grade encryption
               </div>
             </div>
           </div>
@@ -425,7 +248,7 @@ const InteractiveTerminalHero = () => {
 
       {/* Easter Egg Indicator */}
       <div className="absolute top-4 right-4 text-green-400/40 text-xs font-mono animate-pulse hidden sm:block">
-        Try: ↑↑↓↓←→←→BA
+        🔒 Secured: Try ↑↑↓↓←→←→BA
       </div>
     </section>
   );
