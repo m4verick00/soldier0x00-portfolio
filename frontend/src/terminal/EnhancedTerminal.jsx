@@ -421,7 +421,7 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
       {/* Terminal Body */}
       <div 
         ref={terminalRef}
-        className="p-4 h-64 sm:h-80 text-green-400 text-xs bg-black overflow-y-auto scroll-smooth"
+        className="p-4 h-64 sm:h-80 text-green-400 text-sm bg-black overflow-y-auto scroll-smooth"
       >
         {/* Command History */}
         {commandHistory.map((entry, idx) => (
