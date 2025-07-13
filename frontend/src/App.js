@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import "./styles/retro.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "./contexts/ThemeContext";
+import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
 
 // Import components
 import Navigation from "./components/Navigation";
@@ -15,6 +15,8 @@ import YouTubeFavorites from "./components/YouTubeFavorites";
 import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import ThemeToggle from "./components/ThemeToggle";
+
+import { useTheme } from "./contexts/ThemeContext";
 
 import { useTheme } from "./contexts/ThemeContext";
 
