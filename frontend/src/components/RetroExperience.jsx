@@ -9,7 +9,7 @@ const RetroExperience = () => {
       title: 'Data Integration Specialist',
       company: 'Allure Commerce LLP',
       location: 'Remote',
-      period: 'June 2025 – Present',
+      period: 'Current Role',
       type: 'Data Architecture & AI Development',
       highlights: [
         'Engineer sophisticated data pipelines using Apache NiFi for high-volume data processing and transformation',
@@ -28,6 +28,66 @@ const RetroExperience = () => {
     },
     {
       title: 'Cyber Threat Hunter',
+      company: 'Atos',
+      location: 'Bengaluru, IN',
+      period: 'Advanced Role',
+      type: 'Managed Detection & Response - Threat Hunting',
+      highlights: [
+        'Proactively hunted advanced threats by analyzing behavioral patterns, SIEM logs, and threat intelligence to uncover persistence mechanisms, C2 activity, lateral movement, and data exfiltration risks',
+        'Analyzed emerging APT tactics, malware trends, and attacker behaviors to update detection strategies and preemptively close security gaps',
+        'Mapped adversarial techniques to MITRE ATT&CK, designing threat models to prioritize risks and recommend mitigations that harden organizational defenses',
+        'Optimized threat-hunting efficiency by refining detection rules, correlating logs from SIEM/EDR/cloud tools, and streamlining workflows to accelerate incident investigations',
+        'Collaborated with security teams to share intelligence-driven insights, strengthen detection capabilities, and improve organization resilience against evolving threats'
+      ],
+      technologies: ['SIEM', 'EDR', 'MITRE ATT&CK', 'Threat Intelligence', 'Log Analysis', 'APT Detection'],
+      achievements: [
+        'High SLA achievement in client case management',
+        'Successful threat detection and incident response operations',
+        'Significant improvements in log processing and analysis workflows'
+      ]
+    },
+    {
+      title: 'Production Support Engineer (L3)',
+      company: 'Atos',
+      location: 'Bengaluru, IN',
+      period: 'Initial Role',
+      type: 'Level 3 Support & Customer Solutions',
+      highlights: [
+        'Provided advanced technical support as Level 3 engineer for complex production environments across multiple regions',
+        'Worked directly with customers across different geographical regions to resolve critical infrastructure issues',
+        'Managed escalated technical incidents and provided root cause analysis for system failures',
+        'Collaborated with cross-functional teams to implement solutions for high-priority customer environments',
+        'Developed expertise in enterprise-level system architecture and troubleshooting methodologies',
+        'Built strong foundation in production systems that enabled transition to cybersecurity specialization'
+      ],
+      technologies: ['Enterprise Systems', 'Production Support', 'Incident Management', 'Root Cause Analysis', 'Customer Relations'],
+      achievements: [
+        'Successfully managed critical production incidents across multiple regions',
+        'Maintained high customer satisfaction scores for complex technical resolutions',
+        'Developed comprehensive understanding of enterprise infrastructure that supported career transition to cybersecurity'
+      ]
+    },
+    {
+      title: 'Cybersecurity Instructor',
+      company: 'Teaching & Mentoring',
+      location: 'Various Platforms',
+      period: 'Career Foundation',
+      type: 'Education & Knowledge Sharing',
+      highlights: [
+        'Educated next-generation cybersecurity professionals on networking and security fundamentals',
+        'Created comprehensive training content and conducted hands-on workshops for aspiring professionals',
+        'Developed curriculum covering essential cybersecurity concepts and practical implementation',
+        'Mentored students and professionals transitioning into cybersecurity careers',
+        'Built communication and leadership skills that enhanced technical career progression',
+        'Established foundation knowledge that supported transition into enterprise cybersecurity roles'
+      ],
+      technologies: ['Cybersecurity Education', 'Networking Fundamentals', 'Security Training', 'Workshop Facilitation'],
+      achievements: [
+        'Successfully trained multiple cohorts of cybersecurity professionals',
+        'Developed engaging training materials and practical exercises',
+        'Built strong foundation in cybersecurity principles that enabled career advancement'
+      ]
+    }
       company: 'Atos',
       location: 'Bengaluru, IN',
       period: 'April 2022 – June 2025',
