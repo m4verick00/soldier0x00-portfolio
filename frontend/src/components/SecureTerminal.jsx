@@ -95,6 +95,10 @@ const SecureTerminal = ({ onCommand }) => {
       'Secret: Click my name for glitch effect',
       'Pro tip: Matrix mode auto-exits after 5s',
       'Security: All inputs are sanitized! 🔒',
+      'Fun fact: Check the HTML source for ASCII art!',
+      'Bonus: Try entering malicious code for a surprise 😏',
+      'Developer secret: This site has zero jQuery!',
+      '🕵️‍♂️ You found the easter egg command! You are worthy.'
     ],
     soldier0x00: () => [
       '    ███████╗ ██████╗ ██╗     ██████╗ ██╗███████╗██████╗ ',
