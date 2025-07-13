@@ -56,17 +56,19 @@ const InteractiveTerminalHero = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const triggerKonamiEaster = () => {
+  const triggerSecretMode = () => {
     setGlitchActive(true);
     setMatrixMode(true);
+    audioManager.playGlitch();
     setTimeout(() => {
       setGlitchActive(false);
       setMatrixMode(false);
-    }, 3000);
+    }, 5000);
   };
 
   const triggerGlitch = () => {
     setGlitchActive(true);
+    audioManager.playGlitch();
     setTimeout(() => setGlitchActive(false), 200);
   };
 
