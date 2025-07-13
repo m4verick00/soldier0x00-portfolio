@@ -317,10 +317,10 @@ const ThreatConsolePanel = () => {
                   
                   <div className="aspect-video rounded overflow-hidden border border-blue-400/30">
                     <iframe 
-                      src="https://www.digitalattackmap.com/embed/" 
+                      src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" 
                       width="100%" 
                       height="100%"
-                      title="Live DDoS Attack Map"
+                      title="Live Cyber Attack Map"
                       className="w-full h-full"
                       allow="fullscreen"
                     />
@@ -329,7 +329,7 @@ const ThreatConsolePanel = () => {
                   <div className={`mt-4 text-xs font-mono opacity-75 ${
                     isDarkMode ? 'text-gray-400' : 'text-gray-600'
                   }`}>
-                    🌍 Real-time DDoS attack visualization powered by Digital Attack Map (Jigsaw & Arbor Networks)
+                    🌍 Real-time cyber attack visualization powered by Kaspersky Cyberthreat Real-time Map
                   </div>
                 </div>
               )}
