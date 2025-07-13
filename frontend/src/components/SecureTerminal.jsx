@@ -84,7 +84,8 @@ const SecureTerminal = ({ onCommand }) => {
       'LinkedIn: https://linkedin.com/in/sai-harsha-vardhan/',
       'TryHackMe: https://tryhackme.com/p/soldier0x00',
       'Medium: https://soldier0x00.medium.com/',
-      'GitHub: [CLASSIFIED]',
+      'Instagram: https://www.instagram.com/harsha_soldier0x00',
+      'Twitter: https://x.com/soldier0x00',
       'Status: All systems operational',
     ],
     easter: () => [
