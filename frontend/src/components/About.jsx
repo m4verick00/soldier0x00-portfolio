@@ -21,7 +21,7 @@ const About = () => {
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400 neon-glow">guardian.exe</span>
             </h2>
-            <div className="w-16 h-1 bg-green-400 mx-auto neon-glow"></div>
+            <div className="w-16 h-1 bg-cyan-400 mx-auto neon-glow"></div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
