@@ -73,32 +73,49 @@ const Contact = () => {
       icon: '📧',
       title: 'Email',
       value: 'cybersoldier0x00@protonmail.com',
-      description: 'Get in touch for collaborations',
-      color: 'cyan'
+      description: 'Secure communication',
+      color: 'green',
+      link: 'mailto:cybersoldier0x00@protonmail.com'
     },
     {
       icon: '💼',
       title: 'LinkedIn',
-      value: 'Connect on LinkedIn',
-      description: 'Professional networking',
+      value: 'Connect professionally',
+      description: 'Career networking',
       color: 'blue',
-      link: '#'
+      link: 'https://linkedin.com/in/sai-harsha-vardhan/'
     },
     {
-      icon: '🐙',
-      title: 'GitHub',
-      value: 'View repositories',
-      description: 'Code and projects',
-      color: 'purple',
-      link: '#'
+      icon: '🐦',
+      title: 'Twitter',
+      value: '@soldier0x00',
+      description: 'Latest updates and insights',
+      color: 'cyan',
+      link: 'https://x.com/soldier0x00'
+    },
+    {
+      icon: '📷',
+      title: 'Instagram',
+      value: '@harsha_soldier0x00',
+      description: 'Behind the scenes',
+      color: 'pink',
+      link: 'https://www.instagram.com/harsha_soldier0x00'
     },
     {
       icon: '📝',
       title: 'Medium',
-      value: 'soldier0x00.medium.com',
-      description: 'Read my articles',
-      color: 'green',
+      value: 'Read my articles',
+      description: 'Technical insights',
+      color: 'orange',
       link: 'https://soldier0x00.medium.com/'
+    },
+    {
+      icon: '🎯',
+      title: 'TryHackMe',
+      value: 'soldier0x00',
+      description: 'Cybersecurity challenges',
+      color: 'purple',
+      link: 'https://tryhackme.com/p/soldier0x00'
     }
   ];
 
