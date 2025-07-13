@@ -43,78 +43,118 @@ const LiveThreatCounter = () => {
     }
   };
 
-  const fetchCVEData = async () => {
+  const fetchCVEData = async (dataSource = selectedDatabase) => {
     try {
       setCveData(prev => ({ ...prev, loading: true, error: null }));
       
-      // Get current date and 30 days ago for recent CVEs
       const today = new Date();
       const thirtyDaysAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
-      
       const todayStr = today.toISOString().split('T')[0];
       const thirtyDaysAgoStr = thirtyDaysAgo.toISOString().split('T')[0];
-      
-      // NVD API 2.0 endpoint for recent CVEs (last 30 days)
-      const nvdUrl = `https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=${thirtyDaysAgoStr}T00:00:00.000&pubEndDate=${todayStr}T23:59:59.999&resultsPerPage=2000`;
-      
-      const response = await fetch(nvdUrl, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-        },
-      });
-      
-      if (!response.ok) {
-        throw new Error(`NVD API error: ${response.status}`);
+
+      switch (dataSource) {
+        case 'nvd':
+          await fetchNVDData(thirtyDaysAgoStr, todayStr);
+          break;
+        case 'cisa':
+          await fetchCISAData();
+          break;
+        case 'circl':
+          await fetchCIRCLData(thirtyDaysAgoStr, todayStr);
+          break;
+        case 'simulated':
+          await fetchSimulatedData();
+          break;
+        default:
+          await fetchNVDData(thirtyDaysAgoStr, todayStr);
       }
-      
-      const data = await response.json();
-      const recentCount = data.totalResults || 0;
-      
-      // For total CVEs, use a reasonable estimate based on NVD's current database size
-      // NVD typically has around 220,000+ CVEs total as of 2025
-      const totalCount = 225000 + recentCount; // Base estimate plus recent ones
-      
-      setCveData({
-        totalCVEs: totalCount,
-        recentCVEs: recentCount,
-        loading: false,
-        lastUpdated: new Date(),
-        error: null
-      });
-      
     } catch (error) {
-      console.error('Error fetching CVE data:', error);
-      
-      // Try alternative: CISA KEV (Known Exploited Vulnerabilities) as fallback
-      try {
-        const cisaResponse = await fetch('https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json');
-        if (cisaResponse.ok) {
-          const cisaData = await cisaResponse.json();
-          const exploitedCount = cisaData.vulnerabilities?.length || 0;
-          
-          setCveData({
-            totalCVEs: 225000 + exploitedCount, // Estimate + exploited CVEs
-            recentCVEs: exploitedCount,
-            loading: false,
-            lastUpdated: new Date(),
-            error: 'Using CISA KEV data - Known exploited vulnerabilities'
-          });
-          return;
-        }
-      } catch (cisaError) {
-        console.error('CISA fallback also failed:', cisaError);
-      }
-      
-      // Final fallback to realistic mock data
+      console.error('Error in fetchCVEData:', error);
       setCveData({
-        totalCVEs: 225847, // Current realistic estimate for 2025
-        recentCVEs: Math.floor(Math.random() * 50) + 20, // 20-70 range (realistic daily average)
+        totalCVEs: 225000,
+        recentCVEs: 50,
         loading: false,
         lastUpdated: new Date(),
-        error: 'Using simulated data - External APIs temporarily unavailable'
+        error: 'Failed to fetch data from selected source'
       });
     }
+  };
+
+  const fetchNVDData = async (startDate, endDate) => {
+    const nvdUrl = `https://services.nvd.nist.gov/rest/json/cves/2.0?pubStartDate=${startDate}T00:00:00.000&pubEndDate=${endDate}T23:59:59.999&resultsPerPage=2000`;
+    
+    const response = await fetch(nvdUrl, {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' }
+    });
+    
+    if (!response.ok) throw new Error(`NVD API error: ${response.status}`);
+    
+    const data = await response.json();
+    const recentCount = data.totalResults || 0;
+    const totalCount = 301687; // Current NVD total as of 2025
+    
+    setCveData({
+      totalCVEs: totalCount,
+      recentCVEs: recentCount,
+      loading: false,
+      lastUpdated: new Date(),
+      error: null
+    });
+  };
+
+  const fetchCISAData = async () => {
+    const cisaResponse = await fetch('https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json');
+    
+    if (!cisaResponse.ok) throw new Error(`CISA API error: ${cisaResponse.status}`);
+    
+    const cisaData = await cisaResponse.json();
+    const exploitedCount = cisaData.vulnerabilities?.length || 0;
+    
+    setCveData({
+      totalCVEs: exploitedCount,
+      recentCVEs: Math.floor(exploitedCount * 0.1), // Estimate 10% as recent
+      loading: false,
+      lastUpdated: new Date(),
+      error: null
+    });
+  };
+
+  const fetchCIRCLData = async (startDate, endDate) => {
+    const circl Response = await fetch(
+      `https://cve.circl.lu/api/query?time_modifier=from&time_start=${startDate}&time_end=${endDate}`,
+      { method: 'GET', headers: { 'Accept': 'application/json' } }
+    );
+    
+    if (!circlResponse.ok) throw new Error(`CIRCL API error: ${circlResponse.status}`);
+    
+    const recentData = await circlResponse.json();
+    const recentCount = Array.isArray(recentData) ? recentData.length : 0;
+    
+    setCveData({
+      totalCVEs: 220000 + recentCount,
+      recentCVEs: recentCount,
+      loading: false,
+      lastUpdated: new Date(),
+      error: null
+    });
+  };
+
+  const fetchSimulatedData = async () => {
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    const currentHour = new Date().getHours();
+    const baseRecent = 25 + (currentHour % 10); // Varies by time
+    const recentCount = Math.floor(Math.random() * 20) + baseRecent;
+    
+    setCveData({
+      totalCVEs: 301687,
+      recentCVEs: recentCount,
+      loading: false,
+      lastUpdated: new Date(),
+      error: null
+    });
   };
 
   useEffect(() => {
