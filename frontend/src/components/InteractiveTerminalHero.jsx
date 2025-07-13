@@ -167,7 +167,7 @@ const InteractiveTerminalHero = () => {
               <p className="text-base sm:text-lg text-gray-400 max-w-xl mb-8 leading-relaxed retro-description">
                 <span className="text-green-400">&gt;</span> Engineering secure data architectures with Java, NiFi & AI
                 <br />
-                <span className="text-cyan-400">&gt;</span> Building ML algorithms for enhanced threat detection
+                <span className="text-cyan-400">&gt;</span> Learning ML algorithms to enhance threat detection
                 <br />
                 <span className="text-yellow-400">&gt;</span> Mastering data parsing to revolutionize cybersecurity
               </p>
