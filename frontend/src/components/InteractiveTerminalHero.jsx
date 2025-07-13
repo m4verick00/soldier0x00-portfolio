@@ -200,23 +200,7 @@ const InteractiveTerminalHero = () => {
 
           {/* Right Side - Secure Interactive Terminal */}
           <div className="order-1 lg:order-2">
-            <div className="mb-4">
-              <div className="text-center">
-                <pre className="text-green-400 text-xs font-mono mb-4 hidden sm:block">
-{displayText}
-{showCursor && <span className="bg-green-400 text-black animate-pulse">█</span>}
-                </pre>
-              </div>
-            </div>
-            
             <SecureTerminal onCommand={handleTerminalCommand} />
-
-            {/* Security Notice */}
-            <div className="text-center mt-4">
-              <div className="text-green-400/60 text-xs font-mono animate-pulse">
-                🔒 Secured with military-grade encryption
-              </div>
-            </div>
           </div>
         </div>
       </div>
