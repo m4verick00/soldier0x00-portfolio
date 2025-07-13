@@ -19,12 +19,7 @@ const ThemedHome = () => {
   const { isDarkMode } = useTheme();
   
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${
-      isDarkMode 
-        ? 'bg-black text-white' 
-        : 'bg-gray-50 text-gray-900'
-    }`}>
-      <ThemeToggle />
+    <div className="min-h-screen bg-black text-white transition-colors duration-500">
       <SecurityAlert />
       <Navigation />
       <InteractiveTerminalHero />
