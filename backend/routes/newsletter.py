@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Request
 from typing import List
-from datetime import datetime
+from datetime import datetime, timedelta
 import logging
 
 from ..models import NewsletterSubscription, NewsletterSubscriptionCreate, MessageResponse
