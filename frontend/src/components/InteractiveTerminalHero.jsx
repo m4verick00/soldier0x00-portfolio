@@ -183,14 +183,6 @@ const InteractiveTerminalHero = () => {
                 <span className="relative z-10 tracking-widest text-sm sm:text-base">JACK_IN &gt;&gt;</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-cyan-400 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
-              <a
-                href="https://soldier0x00.medium.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-green-400 text-green-400 font-bold rounded-lg transition-all duration-300 hover:bg-green-400 hover:text-black hover:shadow-xl hover:shadow-green-400/50 transform hover:-translate-y-1 text-center retro-button tracking-widest text-sm sm:text-base"
-              >
-                DOWNLOAD_BLOGS
-              </a>
             </div>
 
             {/* Retro Stats Grid */}
