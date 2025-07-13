@@ -301,7 +301,19 @@ const Blog = () => {
               </div>
             )}
             
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form 
+              onSubmit={handleNewsletterSubmit} 
+              className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+              name="newsletter"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              {/* Hidden field for Netlify */}
+              <input type="hidden" name="form-name" value="newsletter" />
+              {/* Honeypot field for spam protection */}
+              <input type="hidden" name="bot-field" />
+              
               <input
                 type="email"
                 value={newsletterEmail}
