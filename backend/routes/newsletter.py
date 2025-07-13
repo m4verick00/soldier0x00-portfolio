@@ -3,8 +3,8 @@ from typing import List
 from datetime import datetime, timedelta
 import logging
 
-from ..models import NewsletterSubscription, NewsletterSubscriptionCreate, MessageResponse
-from ..database import get_newsletter_collection
+from models import NewsletterSubscription, NewsletterSubscriptionCreate, MessageResponse
+from database import get_newsletter_collection
 
 router = APIRouter(prefix="/newsletter", tags=["Newsletter"])
 logger = logging.getLogger(__name__)
