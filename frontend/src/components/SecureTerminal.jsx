@@ -10,19 +10,63 @@ const SecureTerminal = ({ onCommand }) => {
   const inputRef = useRef(null);
   const terminalContainerRef = useRef(null);
 
-  // Store original scroll position to prevent global scrolling
+  // Aggressive scroll prevention
+  const scrollLocked = useRef(false);
   const originalScrollPosition = useRef({ x: 0, y: 0 });
+  const scrollPreventionHandler = useRef(null);
 
-  // Prevent any global page scrolling
-  const preventGlobalScroll = () => {
+  // Lock scrolling completely
+  const lockScroll = () => {
+    if (scrollLocked.current) return;
+    
+    scrollLocked.current = true;
     originalScrollPosition.current = {
       x: window.pageXOffset,
       y: window.pageYOffset
     };
+
+    // Aggressive scroll prevention
+    scrollPreventionHandler.current = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      window.scrollTo(originalScrollPosition.current.x, originalScrollPosition.current.y);
+      return false;
+    };
+
+    // Prevent all scroll events
+    window.addEventListener('scroll', scrollPreventionHandler.current, { passive: false, capture: true });
+    window.addEventListener('wheel', scrollPreventionHandler.current, { passive: false, capture: true });
+    window.addEventListener('touchmove', scrollPreventionHandler.current, { passive: false, capture: true });
+    document.body.addEventListener('scroll', scrollPreventionHandler.current, { passive: false, capture: true });
+    
+    // Also set body style to prevent scrolling
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
   };
 
-  const restoreScrollPosition = () => {
-    window.scrollTo(originalScrollPosition.current.x, originalScrollPosition.current.y);
+  // Unlock scrolling
+  const unlockScroll = () => {
+    if (!scrollLocked.current) return;
+    
+    scrollLocked.current = false;
+    
+    // Remove all event listeners
+    if (scrollPreventionHandler.current) {
+      window.removeEventListener('scroll', scrollPreventionHandler.current, { capture: true });
+      window.removeEventListener('wheel', scrollPreventionHandler.current, { capture: true });
+      window.removeEventListener('touchmove', scrollPreventionHandler.current, { capture: true });
+      document.body.removeEventListener('scroll', scrollPreventionHandler.current, { capture: true });
+    }
+    
+    // Restore body styles
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    
+    // Restore original position
+    setTimeout(() => {
+      window.scrollTo(originalScrollPosition.current.x, originalScrollPosition.current.y);
+    }, 100);
   };
 
   // Initialize terminal with welcome messages using typewriter effect
