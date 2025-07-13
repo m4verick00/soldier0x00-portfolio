@@ -246,19 +246,27 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
             // Update the current message being typed
             setCommandHistory(prev => {
               const newHistory = [...prev];
-              if (newHistory.length > 0 && newHistory[newHistory.length - 1].isTyping) {
-                newHistory[newHistory.length - 1] = {
+              
+              // Remove any existing typing line for current message
+              const typingIndex = newHistory.findIndex(entry => 
+                entry.isTyping && entry.messageIndex === messageIndex
+              );
+              
+              if (typingIndex !== -1) {
+                newHistory[typingIndex] = {
                   command: '',
                   output: [currentMessage + '█'], // cursor effect
                   timestamp: new Date().toLocaleTimeString(),
-                  isTyping: true
+                  isTyping: true,
+                  messageIndex: messageIndex
                 };
               } else {
                 newHistory.push({
                   command: '',
                   output: [currentMessage + '█'],
                   timestamp: new Date().toLocaleTimeString(),
-                  isTyping: true
+                  isTyping: true,
+                  messageIndex: messageIndex
                 });
               }
               return newHistory;
@@ -267,12 +275,17 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
             // Message complete, remove cursor and move to next
             setCommandHistory(prev => {
               const newHistory = [...prev];
-              if (newHistory.length > 0) {
-                newHistory[newHistory.length - 1] = {
+              const typingIndex = newHistory.findIndex(entry => 
+                entry.isTyping && entry.messageIndex === messageIndex
+              );
+              
+              if (typingIndex !== -1) {
+                newHistory[typingIndex] = {
                   command: '',
                   output: [currentMessage],
                   timestamp: new Date().toLocaleTimeString(),
-                  isTyping: false
+                  isTyping: false,
+                  messageIndex: messageIndex
                 };
               }
               return newHistory;
@@ -290,7 +303,7 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
           setIsBooting(false);
           setIsInitialized(true);
         }
-      }, 50); // Character typing speed
+      }, 25); // Faster character typing speed (reduced from 50ms to 25ms)
 
       return () => clearInterval(typewriterInterval);
     }
