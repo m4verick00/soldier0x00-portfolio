@@ -122,26 +122,26 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden transition-all duration-300 ${
+        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
           isMobileMenuOpen 
             ? 'max-h-screen opacity-100' 
-            : 'max-h-0 opacity-0 overflow-hidden'
+            : 'max-h-0 opacity-0'
         }`}>
           <div className="bg-black/95 backdrop-blur-md border-t border-cyan-400/20">
-            <div className="container mx-auto px-6 py-4">
-              <div className="space-y-4">
+            <div className="container mx-auto px-4 sm:px-6 py-4">
+              <div className="space-y-2">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.href, item.external)}
-                    className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-300 hover:bg-cyan-400/10 ${
+                    className={`block w-full text-left px-4 py-4 rounded-lg transition-all duration-300 hover:bg-cyan-400/10 min-h-[48px] flex items-center ${
                       activeSection === item.id 
                         ? 'text-cyan-400 bg-cyan-400/10' 
                         : 'text-gray-300'
                     }`}
                   >
-                    {item.label}
-                    {item.external && <span className="ml-1 text-xs">↗</span>}
+                    <span className="font-medium">{item.label}</span>
+                    {item.external && <span className="ml-2 text-xs">↗</span>}
                   </button>
                 ))}
               </div>
