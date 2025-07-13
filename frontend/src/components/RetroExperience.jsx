@@ -7,7 +7,7 @@ const RetroExperience = () => {
     {
       title: 'Data Integration Specialist',
       company: 'Allure Commerce LLP',
-      location: 'Remote/Hybrid',
+      location: 'Remote',
       period: 'June 2025 – Present',
       type: 'Data Architecture & AI Development',
       highlights: [
