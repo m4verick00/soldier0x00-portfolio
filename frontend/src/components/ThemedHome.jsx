@@ -24,6 +24,7 @@ const ThemedHome = () => {
         : 'bg-gray-50 text-gray-900'
     }`}>
       <ThemeToggle />
+      <SecurityAlert />
       <Navigation />
       <InteractiveTerminalHero />
       <About />
