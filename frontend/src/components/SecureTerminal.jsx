@@ -346,11 +346,9 @@ const SecureTerminal = ({ onCommand }) => {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        preventGlobalScroll();
         setIsActive(true);
         setTimeout(() => {
           inputRef.current?.focus({ preventScroll: true });
-          restoreScrollPosition();
         }, 100);
       }}
     >
