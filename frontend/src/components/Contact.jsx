@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { contactAPI, handleApiError } from '../services/api';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -21,17 +23,35 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('');
+    setSubmitMessage('');
     
-    // Mock form submission - in real implementation, this would send to backend
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await contactAPI.sendMessage(formData);
+      
       setSubmitStatus('success');
+      setSubmitMessage(response.message);
       setFormData({ name: '', email: '', subject: '', message: '' });
       
+      // Clear status after 5 seconds
       setTimeout(() => {
         setSubmitStatus('');
-      }, 3000);
-    }, 1500);
+        setSubmitMessage('');
+      }, 5000);
+      
+    } catch (error) {
+      const errorInfo = handleApiError(error);
+      setSubmitStatus('error');
+      setSubmitMessage(errorInfo.message);
+      
+      // Clear error after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('');
+        setSubmitMessage('');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
