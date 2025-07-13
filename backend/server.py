@@ -1,67 +1,16 @@
-from fastapi import FastAPI, APIRouter
-from dotenv import load_dotenv
-from starlette.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
+from fastapi import FastAPI, APIRouter, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from contextlib import asynccontextmanager
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field
-from typing import List
-import uuid
-from datetime import datetime
 
+# Import database connection functions
+from .database import connect_to_mongo, close_mongo_connection
 
-ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
-
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
-
-# Create the main app without a prefix
-app = FastAPI()
-
-# Create a router with the /api prefix
-api_router = APIRouter(prefix="/api")
-
-
-# Define Models
-class StatusCheck(BaseModel):
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
-
-class StatusCheckCreate(BaseModel):
-    client_name: str
-
-# Add your routes to the router instead of directly to app
-@api_router.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.dict()
-    status_obj = StatusCheck(**status_dict)
-    _ = await db.status_checks.insert_one(status_obj.dict())
-    return status_obj
-
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    status_checks = await db.status_checks.find().to_list(1000)
-    return [StatusCheck(**status_check) for status_check in status_checks]
-
-# Include the router in the main app
-app.include_router(api_router)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Import route modules
+from .routes import contact, newsletter, analytics, blog
 
 # Configure logging
 logging.basicConfig(
@@ -70,6 +19,110 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    client.close()
+# Lifecycle management
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    logger.info("Starting portfolio backend server...")
+    try:
+        await connect_to_mongo()
+        logger.info("Database connected successfully")
+    except Exception as e:
+        logger.error(f"Failed to connect to database: {e}")
+        raise
+    
+    yield
+    
+    # Shutdown
+    logger.info("Shutting down portfolio backend server...")
+    await close_mongo_connection()
+
+# Create FastAPI app with lifespan management
+app = FastAPI(
+    title="Soldier0x00 Portfolio API",
+    description="Backend API for cybersecurity portfolio website",
+    version="1.0.0",
+    lifespan=lifespan
+)
+
+# Create API router with /api prefix
+api_router = APIRouter(prefix="/api")
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=["*"],  # In production, specify exact origins
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Health check endpoint
+@api_router.get("/")
+async def root():
+    return {
+        "message": "Soldier0x00 Portfolio API",
+        "status": "operational",
+        "version": "1.0.0"
+    }
+
+@api_router.get("/health")
+async def health_check():
+    """Health check endpoint for monitoring"""
+    return {
+        "status": "healthy",
+        "timestamp": "2025-01-13T06:00:00Z",
+        "services": {
+            "database": "connected",
+            "api": "operational"
+        }
+    }
+
+# Include route modules
+api_router.include_router(contact.router)
+api_router.include_router(newsletter.router)
+api_router.include_router(analytics.router)
+api_router.include_router(blog.router)
+
+# Include the API router in the main app
+app.include_router(api_router)
+
+# Global exception handler
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Global exception: {exc}")
+    return JSONResponse(
+        status_code=500,
+        content={
+            "message": "An unexpected error occurred",
+            "success": False
+        }
+    )
+
+# Request logging middleware
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    start_time = time.time()
+    
+    # Process request
+    response = await call_next(request)
+    
+    # Log request details
+    process_time = time.time() - start_time
+    logger.info(
+        f"{request.method} {request.url.path} - "
+        f"Status: {response.status_code} - "
+        f"Time: {process_time:.4f}s"
+    )
+    
+    return response
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(
+        "server:app",
+        host="0.0.0.0",
+        port=8001,
+        reload=True,
+        log_level="info"
+    )
