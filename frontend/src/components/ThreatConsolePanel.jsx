@@ -112,6 +112,11 @@ const ThreatConsolePanel = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+        {/* Live Threat Counter Section */}
+        <div className="mb-8">
+          <LiveThreatCounter />
+        </div>
+
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-20">
