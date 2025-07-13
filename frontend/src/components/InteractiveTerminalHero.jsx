@@ -12,11 +12,14 @@ const InteractiveTerminalHero = () => {
 
   const matrixCharacters = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  // Matrix rain effect
+  // Matrix rain effect optimized for mobile
   useEffect(() => {
     const columns = Math.floor(window.innerWidth / 20);
+    // Reduce particles on mobile for better performance
+    const maxColumns = window.innerWidth < 768 ? Math.min(columns, 15) : Math.min(columns, 30);
     const drops = [];
-    for (let i = 0; i < columns; i++) {
+    
+    for (let i = 0; i < maxColumns; i++) {
       drops[i] = 1;
     }
 
@@ -31,9 +34,9 @@ const InteractiveTerminalHero = () => {
           }
           drops[i]++;
         }
-        return newChars.slice(0, 30);
+        return newChars.slice(0, maxColumns);
       });
-    }, matrixMode ? 50 : 150);
+    }, matrixMode ? 50 : (window.innerWidth < 768 ? 200 : 150)); // Slower on mobile
 
     return () => clearInterval(matrix);
   }, [matrixMode]);
