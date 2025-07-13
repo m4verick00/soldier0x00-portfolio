@@ -302,12 +302,14 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
     }
   }, [isBooting]);
 
-  // Auto-scroll to bottom with better handling - only when typing or new commands
+  // Auto-scroll to bottom - only during typing, not after completion
   useEffect(() => {
-    if (terminalRef.current && (isBooting || commandHistory.length > 0)) {
+    if (terminalRef.current && commandHistory.length > 0) {
       const scrollElement = terminalRef.current;
-      // Only scroll during boot or when new commands are added
-      if (isBooting || commandHistory[commandHistory.length - 1]?.isTyping) {
+      const lastEntry = commandHistory[commandHistory.length - 1];
+      
+      // Only scroll if we're actively typing (during boot or when typing commands)
+      if (lastEntry?.isTyping || isBooting) {
         scrollElement.scrollTop = scrollElement.scrollHeight;
       }
     }
