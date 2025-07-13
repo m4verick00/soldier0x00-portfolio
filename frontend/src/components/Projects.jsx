@@ -5,27 +5,50 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'JARVIS - Personal AI Assistant',
+      title: 'TAG - The Autonomous Guardian',
       category: 'AI & Cybersecurity',
       status: 'In Development',
-      description: 'Building a local AI assistant inspired by Iron Man\'s JARVIS to understand AI implementation in cybersecurity operations and threat hunting workflows.',
+      description: 'Building an autonomous cybersecurity AI guardian to understand AI implementation in cybersecurity operations, threat hunting workflows, and automated security response.',
       technologies: ['Python', 'Machine Learning', 'NLP', 'Local LLM', 'Cybersecurity APIs'],
       features: [
-        'Voice-activated security operations assistant',
-        'Threat intelligence analysis and reporting',
+        'Autonomous threat detection and analysis',
+        'Intelligent security operations assistant',
         'Automated incident response workflows',
         'Local deployment for data privacy',
         'Integration with SIEM and security tools',
-        'Natural language query interface for security data'
+        'Advanced threat intelligence correlation'
       ],
       goals: [
         'Understand AI implementation in cybersecurity',
         'Create intelligent automation for threat hunting',
-        'Develop local AI capabilities for sensitive operations',
-        'Build voice-controlled security command center'
+        'Develop autonomous security guardian capabilities',
+        'Build next-generation security AI assistant'
       ],
-      icon: '🤖',
+      icon: '🛡️',
       color: 'purple'
+    },
+    {
+      title: 'ITACHI - Intelligent Task Automation',
+      category: 'AI & Automation',
+      status: 'Planning Phase',
+      description: 'ITACHI (Intelligent Task Automation Command & Helper Interface) - A fully automated, voice-activated assistant for everyday PC tasks and advanced actions without physical input.',
+      technologies: ['Python', 'Voice Recognition', 'Speech-to-Text', 'Task Automation', 'AI'],
+      features: [
+        'Fully voice-activated PC control',
+        'Automated task execution without physical input',
+        'Intelligent command interpretation',
+        'System-wide automation capabilities',
+        'Voice-controlled file management',
+        'Hands-free computing experience'
+      ],
+      goals: [
+        'Achieve complete hands-free PC operation',
+        'Develop advanced voice automation system',
+        'Create intelligent task interpretation',
+        'Build seamless voice-computer interface'
+      ],
+      icon: '🗣️',
+      color: 'green'
     },
     {
       title: 'Paris 2024 Olympics Security Operations',
