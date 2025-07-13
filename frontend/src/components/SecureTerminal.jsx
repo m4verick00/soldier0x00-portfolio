@@ -5,7 +5,36 @@ const SecureTerminal = ({ onCommand }) => {
   const [commandInput, setCommandInput] = useState('');
   const [commandHistory, setCommandHistory] = useState([]);
   const [isActive, setIsActive] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
   const inputRef = useRef(null);
+
+  // Initialize terminal with welcome messages
+  useEffect(() => {
+    if (!isInitialized) {
+      const initMessages = [
+        'INITIALIZING SECURE NEURAL INTERFACE...',
+        'LOADING ENCRYPTED THREAT INTELLIGENCE...',
+        'ESTABLISHING SECURE CYBER GRID CONNECTION...',
+        'WELCOME TO soldier0x00.CYBERSPACE',
+        'SECURITY STATUS: MAXIMUM ENCRYPTION',
+        'TERMINAL STATUS: HARDENED & READY',
+        'TYPE "help" FOR AVAILABLE COMMANDS',
+      ];
+
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index < initMessages.length) {
+          setCommandHistory(prev => [...prev, `> ${initMessages[index]}`]);
+          index++;
+        } else {
+          clearInterval(interval);
+          setIsInitialized(true);
+        }
+      }, 500);
+
+      return () => clearInterval(interval);
+    }
+  }, [isInitialized]);
 
   const secureCommands = {
     help: () => [
