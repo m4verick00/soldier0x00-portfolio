@@ -36,23 +36,7 @@ const InteractiveTerminalHero = () => {
 
     return () => clearInterval(matrix);
   }, [matrixMode]);
-  useEffect(() => {
-    if (currentLineIndex < terminalLines.length) {
-      const timer = setTimeout(() => {
-        setDisplayText(prev => prev + terminalLines[currentLineIndex] + '\n');
-        setCurrentLineIndex(prev => prev + 1);
-      }, 700);
-      return () => clearTimeout(timer);
-    }
-  }, [currentLineIndex]);
 
-  // Cursor blink
-  useEffect(() => {
-    const cursorTimer = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
-    return () => clearInterval(cursorTimer);
-  }, []);
 
   // Konami code listener
   useEffect(() => {
