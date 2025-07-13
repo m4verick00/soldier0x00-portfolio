@@ -311,8 +311,8 @@ const RetroProjects = () => {
                         <p className="text-gray-300 leading-relaxed font-mono">{project.description}</p>
                       </div>
 
-                      {/* ASCII Art */}
-                      <div className="mb-8 hidden sm:block">
+                      {/* ASCII Art - Removed due to spelling issues */}
+                      <div className="mb-8 hidden">
                         <pre className={`${colors.text} text-xs font-mono opacity-60`}>
                           {project.ascii}
                         </pre>
