@@ -115,43 +115,57 @@ const InteractiveTerminalHero = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Retro Content */}
           <div className="text-left order-2 lg:order-1">
-            <div className="mb-8">
+            <div className="mb-6 lg:mb-8">
               {/* Glitch Name Effect */}
               <h1 
-                className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight retro-title cursor-pointer ${glitchActive ? 'glitch' : ''}`}
-                onClick={triggerGlitch}
-                data-text="soldier0x00"
+                className={`text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 lg:mb-6 font-mono tracking-wider transition-all duration-300 break-words ${
+                  glitchActive ? 'animate-pulse text-red-400' : 'text-green-400'
+                }`}
+                style={{
+                  textShadow: '0 0 10px currentColor',
+                  filter: glitchActive ? 'hue-rotate(180deg)' : 'none',
+                  wordBreak: 'break-word',
+                  maxWidth: '100%'
+                }}
               >
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-cyan-400 to-green-400 neon-glow">
-                  soldier0x00
-                </span>
+                SOLDIER0X00
               </h1>
               
-              {/* Retro Role Display */}
-              <div className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-6 space-y-2 retro-text">
-                <div className="text-green-400 font-bold tracking-wider">► DATA_ARCHITECT.exe</div>
-                <div className="text-cyan-400 font-bold tracking-wider">► CYBER_HUNTER.dll</div>
-                <div className="text-yellow-400 font-bold tracking-wider">► AI_NEURAL.sys</div>
+              {/* Role Descriptions */}
+              <div className="space-y-2 lg:space-y-3 text-base sm:text-lg xl:text-xl mb-6 lg:mb-8">
+                <div className="flex items-center space-x-2 break-words">
+                  <span className="text-green-400 shrink-0">▶</span>
+                  <span className="text-green-400 font-mono text-sm sm:text-base">DATA_ARCHITECT.exe</span>
+                </div>
+                <div className="flex items-center space-x-2 break-words">
+                  <span className="text-cyan-400 shrink-0">▶</span>
+                  <span className="text-cyan-400 font-mono text-sm sm:text-base">CYBER_HUNTER.dll</span>
+                </div>
+                <div className="flex items-center space-x-2 break-words">
+                  <span className="text-yellow-400 shrink-0">▶</span>
+                  <span className="text-yellow-400 font-mono text-sm sm:text-base">AI_NEURAL.sys</span>
+                </div>
               </div>
-              
-              <p className="text-base sm:text-lg text-gray-400 max-w-xl mb-8 leading-relaxed retro-description">
-                <span className="text-green-400">&gt;</span> Engineering secure data architectures with Java, NiFi & AI
-                <br />
-                <span className="text-cyan-400">&gt;</span> Learning ML algorithms to enhance threat detection
-                <br />
-                <span className="text-yellow-400">&gt;</span> Mastering data parsing to revolutionize cybersecurity
-              </p>
-            </div>
-            
-            {/* Retro CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <button 
+
+              {/* Description */}
+              <div className="text-gray-300 leading-relaxed space-y-3 lg:space-y-4 mb-6 lg:mb-8">
+                <p className="text-sm sm:text-base lg:text-lg break-words">
+                  <span className="text-gray-400">></span> Engineering secure data architectures with Java, NiFi & AI
+                </p>
+                <p className="text-sm sm:text-base lg:text-lg break-words">
+                  <span className="text-gray-400">></span> Learning ML algorithms to enhance threat detection
+                </p>
+                <p className="text-sm sm:text-base lg:text-lg break-words">
+                  <span className="text-gray-400">></span> Mastering data parsing to revolutionize cybersecurity
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <button
+                className="w-full sm:w-auto min-h-[48px] px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-green-500 to-cyan-500 text-black font-bold text-base lg:text-lg rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-500/50 focus:outline-none focus:ring-4 focus:ring-green-500/50 font-mono tracking-wider"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-cyan-500 text-black font-bold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-green-500/50 transform hover:-translate-y-1 retro-button"
-                onMouseEnter={() => triggerGlitch()}
               >
-                <span className="relative z-10 tracking-widest text-sm sm:text-base">JACK_IN &gt;&gt;</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-cyan-400 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                JACK_IN >>
               </button>
             </div>
 
