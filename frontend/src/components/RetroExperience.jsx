@@ -67,24 +67,25 @@ const RetroExperience = () => {
       ]
     },
     {
-      title: 'Security Operations Specialist',
+      title: 'AIsaac Threat Management (Connector Engineering)',
       company: 'Atos',
-      location: 'Paris, France (Remote)',
-      period: 'Paris 2024 Olympics Project',
-      type: 'Critical Infrastructure Protection',
+      location: 'Bengaluru, IN',
+      period: 'Paris 2024 Olympics Project Team',
+      type: 'Critical Infrastructure & Log Processing Engineering',
       highlights: [
+        'Selected as part of elite 7-member AIsaac Threat Management (Connector Engineering) team supporting Paris 2024 Olympics cybersecurity operations',
+        'Engineered and optimized Java-based connectors and log parsers for critical infrastructure protection during the Olympic Games',
+        'Handled complex log parsing workflows ensuring uninterrupted data flow and real-time visibility to Security Operations Centre',
         'Contributed to Atos role as Official Cybersecurity Services and Operations Supporter for Paris 2024 Olympics and Paralympics',
-        'Part of critical task force responsible for application and system stability for uninterrupted log flow and parsing',
-        'Ensured uninterrupted log processing and enrichment for the Games, optimizing Java-based connectors/parsers to deliver near real-time log visibility',
-        'Achieved 99.99% uptime for critical log parsing systems during peak Olympic event periods, safeguarding the Games against cyber threats',
-        'Implemented performance optimizations resulting in 30% increase in log processing speed, enabling faster threat detection and response'
+        'Optimized application performance and implemented enhancements resulting in 30% increase in log processing speed',
+        'Maintained 99.99% uptime for critical log parsing systems during peak Olympic event periods, ensuring zero security incidents'
       ],
-      technologies: ['Java', 'Log Processing', 'Real-time Analytics', 'SOC Integration', 'Critical Infrastructure'],
+      technologies: ['Java', 'Log Processing', 'AIsaac Connectors', 'Real-time Analytics', 'Application Optimization', 'Critical Infrastructure'],
       achievements: [
         '99.99% uptime for critical log parsing systems during Olympic Games',
-        '30% increase in log processing speed optimization',
+        '30% increase in log processing speed through optimization',
         'Zero security incidents during Olympic Games period',
-        'Successfully supported global-scale cybersecurity operations'
+        'Part of elite 7-member engineering team for global-scale cybersecurity operations'
       ]
     }
   ];
