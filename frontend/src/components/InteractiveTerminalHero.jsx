@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EnhancedTerminal from '../terminal/EnhancedTerminal';
-import { audioManager } from '../audio/AudioManager';
+
 
 const InteractiveTerminalHero = () => {
   const [matrixChars, setMatrixChars] = useState([]);
