@@ -70,24 +70,24 @@ const Navigation = () => {
           ? 'bg-black/80 backdrop-blur-md border-b border-cyan-400/20 shadow-lg shadow-cyan-500/10' 
           : 'bg-transparent'
       }`}>
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <button
               onClick={() => scrollToSection('#')}
-              className="text-xl font-bold text-white hover:text-cyan-400 transition-colors"
+              className="text-lg sm:text-xl font-bold text-white hover:text-cyan-400 transition-colors min-h-[48px] flex items-center"
             >
               <span className="text-cyan-400">soldier0x00</span>
               <span className="text-green-400 ml-1">$</span>
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.href, item.external)}
-                  className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-cyan-400 ${
+                  className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-cyan-400 min-h-[40px] ${
                     activeSection === item.id ? 'text-cyan-400' : 'text-gray-300'
                   }`}
                 >
@@ -103,7 +103,8 @@ const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2"
+              className="md:hidden text-white p-3 min-h-[48px] min-w-[48px] flex items-center justify-center"
+              aria-label="Toggle mobile menu"
             >
               <div className="relative w-6 h-6">
                 <span className={`absolute block w-full h-0.5 bg-current transition-all duration-300 ${
