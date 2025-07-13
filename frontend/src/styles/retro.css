@@ -62,7 +62,7 @@
   box-shadow: 0 0 20px var(--glow-primary);
 }
 
-/* CRT Monitor Effect */
+/* CRT Monitor Effect - Disabled */
 .retro-crt {
   position: relative;
 }
