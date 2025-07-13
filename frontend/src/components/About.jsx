@@ -24,16 +24,16 @@ const About = () => {
               <div className="bg-black/40 backdrop-blur-sm border border-cyan-400/20 rounded-lg p-6">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-4">Threat Hunter & Cybersecurity Professional</h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  Currently working as a Cyber Threat Hunter at Atos, where I proactively hunt advanced threats by analyzing behavioral patterns, 
-                  SIEM logs, and threat intelligence to uncover persistence mechanisms, C2 activity, and lateral movement.
+                  Currently working as a Data Integration Specialist, where I leverage middleware technologies and data pipeline engineering 
+                  to enhance cybersecurity operations and threat intelligence capabilities.
                 </p>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  With expertise in threat hunting, SOC operations, and digital forensics, I specialize in mapping adversarial techniques 
-                  to MITRE ATT&CK framework and designing threat models to prioritize risks and recommend mitigations.
+                  Previously served as a Cyber Threat Hunter at Atos, where I proactively hunted advanced threats by analyzing behavioral patterns, 
+                  SIEM logs, and threat intelligence to uncover persistence mechanisms, C2 activity, and lateral movement.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  Currently building my own AI assistant (JARVIS-style) to understand how AI can be implemented in cybersecurity operations 
-                  and threat hunting workflows.
+                  Currently building The Autonomous Guardian (TAG) for cybersecurity automation and ITACHI for intelligent voice-controlled 
+                  task automation, exploring how AI can revolutionize both security operations and everyday computing.
                 </p>
               </div>
 
