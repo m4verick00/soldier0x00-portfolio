@@ -280,7 +280,7 @@ const SecureTerminal = ({ onCommand }) => {
   };
 
   const handleSecureCommand = (rawInput) => {
-    preventGlobalScroll(); // Store scroll position before processing
+    // Don't interfere with scroll during command processing if terminal is initialized
     
     // Sanitize and validate input
     const sanitizedInput = sanitizeInput(rawInput);
@@ -297,12 +297,11 @@ const SecureTerminal = ({ onCommand }) => {
       }]);
       setCommandInput('');
       
-      // Scroll only within terminal, then restore global position
+      // Scroll only within terminal
       setTimeout(() => {
         if (terminalContainerRef.current) {
           terminalContainerRef.current.scrollTop = terminalContainerRef.current.scrollHeight;
         }
-        restoreScrollPosition();
       }, 50);
       return;
     }
@@ -321,12 +320,11 @@ const SecureTerminal = ({ onCommand }) => {
     
     setCommandInput('');
     
-    // Scroll only within terminal, then restore global position
+    // Scroll only within terminal
     setTimeout(() => {
       if (terminalContainerRef.current) {
         terminalContainerRef.current.scrollTop = terminalContainerRef.current.scrollHeight;
       }
-      restoreScrollPosition();
     }, 50);
   };
 
