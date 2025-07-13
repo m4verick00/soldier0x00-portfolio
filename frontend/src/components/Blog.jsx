@@ -15,11 +15,24 @@ const Blog = () => {
     setNewsletterMessage('');
     
     try {
-      const response = await newsletterAPI.subscribe(newsletterEmail);
-      
-      setNewsletterStatus('success');
-      setNewsletterMessage(response.message);
-      setNewsletterEmail('');
+      // For Netlify deployment, use Netlify Forms
+      const formData = new FormData();
+      formData.append('form-name', 'newsletter');
+      formData.append('email', newsletterEmail);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        setNewsletterStatus('success');
+        setNewsletterMessage('Successfully subscribed! You\'ll receive updates about new cybersecurity articles and insights.');
+        setNewsletterEmail('');
+      } else {
+        throw new Error('Newsletter subscription failed');
+      }
       
       // Clear status after 5 seconds
       setTimeout(() => {
@@ -28,9 +41,8 @@ const Blog = () => {
       }, 5000);
       
     } catch (error) {
-      const errorInfo = handleApiError(error);
       setNewsletterStatus('error');
-      setNewsletterMessage(errorInfo.message);
+      setNewsletterMessage('Failed to subscribe. Please try again later.');
       
       // Clear error after 5 seconds
       setTimeout(() => {
