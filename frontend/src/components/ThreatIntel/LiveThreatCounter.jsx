@@ -211,13 +211,47 @@ const LiveThreatCounter = () => {
             LIVE THREAT COUNTER
           </h3>
         </div>
-        <div className="text-xs text-gray-400 font-mono">
-          {cveData.loading ? (
-            <span className="animate-pulse">UPDATING...</span>
-          ) : (
-            <span>Updated {getTimeSince(cveData.lastUpdated)}</span>
-          )}
+        <div className="flex items-center space-x-4">
+          {/* Database Selector */}
+          <div className="relative">
+            <select
+              value={selectedDatabase}
+              onChange={(e) => handleDatabaseChange(e.target.value)}
+              className="bg-gray-900 border border-gray-600 rounded px-3 py-1 text-xs text-gray-300 font-mono focus:outline-none focus:border-cyan-400 transition-colors"
+            >
+              {Object.entries(databases).map(([key, db]) => (
+                <option key={key} value={key} className="bg-gray-900">
+                  {db.icon} {db.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="text-xs text-gray-400 font-mono">
+            {cveData.loading ? (
+              <span className="animate-pulse">UPDATING...</span>
+            ) : (
+              <span>Updated {getTimeSince(cveData.lastUpdated)}</span>
+            )}
+          </div>
         </div>
+      </div>
+
+      {/* Database Info */}
+      <div className="mb-4 p-3 bg-gray-900/50 border border-gray-600/30 rounded-lg">
+        <div className="flex items-center space-x-2 mb-2">
+          <span className="text-lg">{databases[selectedDatabase].icon}</span>
+          <span className={`font-mono text-sm font-bold ${databases[selectedDatabase].color}`}>
+            {databases[selectedDatabase].name}
+          </span>
+        </div>
+        <p className="text-gray-400 text-xs font-mono">
+          {databases[selectedDatabase].description}
+        </p>
+        {selectedDatabase === 'cisa' && (
+          <p className="text-gray-500 text-xs font-mono mt-1">
+            Note: Shows actively exploited vulnerabilities only
+          </p>
+        )}
       </div>
 
       {cveData.error && (
