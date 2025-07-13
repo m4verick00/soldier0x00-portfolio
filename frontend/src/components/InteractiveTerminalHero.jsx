@@ -59,7 +59,6 @@ const InteractiveTerminalHero = () => {
   const triggerSecretMode = () => {
     setGlitchActive(true);
     setMatrixMode(true);
-    audioManager.playGlitch();
     setTimeout(() => {
       setGlitchActive(false);
       setMatrixMode(false);
