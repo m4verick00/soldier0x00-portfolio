@@ -45,7 +45,7 @@ const InteractiveTerminalHero = () => {
       setKonami(prev => {
         const newKonami = [...prev, e.code].slice(-10);
         if (newKonami.join(',') === konamiCode.join(',')) {
-          triggerKonamiEaster();
+          triggerSecretMode();
           return [];
         }
         return newKonami;
