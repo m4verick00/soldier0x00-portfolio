@@ -244,8 +244,6 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
           clearInterval(bootInterval);
           setIsBooting(false);
           setIsInitialized(true);
-          // Play boot sound
-          audioManager.playBootSound();
         }
       }, 300);
 
