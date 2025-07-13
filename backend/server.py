@@ -8,10 +8,10 @@ import time
 from pathlib import Path
 
 # Import database connection functions
-from .database import connect_to_mongo, close_mongo_connection
+from database import connect_to_mongo, close_mongo_connection
 
 # Import route modules
-from .routes import contact, newsletter, analytics, blog
+from routes import contact, newsletter, analytics, blog
 
 # Configure logging
 logging.basicConfig(
