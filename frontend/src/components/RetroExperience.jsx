@@ -49,7 +49,7 @@ const RetroExperience = () => {
       title: 'DevSecOps Engineer - AIsaac SIEM & SOAR',
       company: 'Atos',
       location: 'Bengaluru, IN', 
-      period: 'AIsaac Threat Management & Cloud R&D',
+      period: 'April 2022 – June 2025',
       type: 'SIEM Architecture & Production Operations',
       highlights: [
         'Architected and maintained backend infrastructure for AIsaac proprietary SIEM & SOAR platform',
@@ -68,6 +68,28 @@ const RetroExperience = () => {
         '🏆 PARIS 2024 OLYMPICS: 99.99% uptime for critical log parsing systems during Olympic Games with zero security incidents',
         'Part of elite 7-member engineering team for global-scale cybersecurity operations',
         'Gained comprehensive understanding of SIEM data flows and threat detection pipelines'
+      ]
+    },
+    {
+      title: 'Networking & Security Instructor',
+      company: 'Technology Training Institute',
+      location: 'Bengaluru, IN',
+      period: 'September 2021 – March 2022 (7 months)',
+      type: 'Education & Training - Cybersecurity Foundation',
+      highlights: [
+        'Taught comprehensive networking fundamentals including TCP/IP, OSI model, routing protocols, and network topologies to aspiring cybersecurity professionals',
+        'Delivered hands-on security training covering ethical hacking, penetration testing methodologies, and vulnerability assessment techniques',
+        'Designed practical lab exercises for network security concepts including firewall configuration, intrusion detection systems, and security hardening',
+        'Mentored students in cybersecurity career development, providing guidance on industry certifications and professional pathways',
+        'Developed curriculum content for cybersecurity awareness training and safe computing practices',
+        'Built foundational teaching and knowledge transfer skills while deepening understanding of core security principles'
+      ],
+      technologies: ['Network Security', 'Ethical Hacking', 'Penetration Testing', 'Firewalls', 'IDS/IPS', 'TCP/IP', 'Cybersecurity Training'],
+      achievements: [
+        'Successfully trained 50+ students in networking and cybersecurity fundamentals',
+        'Developed comprehensive hands-on lab curriculum for practical security learning',
+        'Built strong foundation in cybersecurity education and knowledge transfer',
+        'Enhanced communication and technical presentation skills crucial for cybersecurity roles'
       ]
     }
   ];
