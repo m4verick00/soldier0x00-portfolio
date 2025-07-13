@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import components
 import Navigation from "./components/Navigation";
-import RetroTerminalHero from "./components/RetroTerminalHero";
+import InteractiveTerminalHero from "./components/InteractiveTerminalHero";
 import About from "./components/About";
 import RetroExperience from "./components/RetroExperience";
 import Skills from "./components/Skills";
