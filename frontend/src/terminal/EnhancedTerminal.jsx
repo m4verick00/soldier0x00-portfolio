@@ -228,26 +228,71 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
     }
   };
 
-  // Boot sequence effect
+  // Boot sequence effect with typewriter
   useEffect(() => {
     if (isBooting) {
       let messageIndex = 0;
-      const bootInterval = setInterval(() => {
+      let charIndex = 0;
+      let currentMessage = '';
+      
+      const typewriterInterval = setInterval(() => {
         if (messageIndex < bootMessages.length) {
-          setCommandHistory(prev => [...prev, {
-            command: '',
-            output: [bootMessages[messageIndex]],
-            timestamp: new Date().toLocaleTimeString()
-          }]);
-          messageIndex++;
+          const fullMessage = bootMessages[messageIndex];
+          
+          if (charIndex < fullMessage.length) {
+            currentMessage += fullMessage[charIndex];
+            charIndex++;
+            
+            // Update the current message being typed
+            setCommandHistory(prev => {
+              const newHistory = [...prev];
+              if (newHistory.length > 0 && newHistory[newHistory.length - 1].isTyping) {
+                newHistory[newHistory.length - 1] = {
+                  command: '',
+                  output: [currentMessage + '█'], // cursor effect
+                  timestamp: new Date().toLocaleTimeString(),
+                  isTyping: true
+                };
+              } else {
+                newHistory.push({
+                  command: '',
+                  output: [currentMessage + '█'],
+                  timestamp: new Date().toLocaleTimeString(),
+                  isTyping: true
+                });
+              }
+              return newHistory;
+            });
+          } else {
+            // Message complete, remove cursor and move to next
+            setCommandHistory(prev => {
+              const newHistory = [...prev];
+              if (newHistory.length > 0) {
+                newHistory[newHistory.length - 1] = {
+                  command: '',
+                  output: [currentMessage],
+                  timestamp: new Date().toLocaleTimeString(),
+                  isTyping: false
+                };
+              }
+              return newHistory;
+            });
+            
+            messageIndex++;
+            charIndex = 0;
+            currentMessage = '';
+            
+            // Small delay between messages
+            setTimeout(() => {}, 100);
+          }
         } else {
-          clearInterval(bootInterval);
+          clearInterval(typewriterInterval);
           setIsBooting(false);
           setIsInitialized(true);
         }
-      }, 300);
+      }, 50); // Character typing speed
 
-      return () => clearInterval(bootInterval);
+      return () => clearInterval(typewriterInterval);
     }
   }, [isBooting]);
 
