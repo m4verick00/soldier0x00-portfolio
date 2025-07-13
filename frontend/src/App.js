@@ -18,9 +18,9 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
-      <TerminalHero />
+      <RetroTerminalHero />
       <About />
-      <Experience />
+      <RetroExperience />
       <Skills />
       <Projects />
       <YouTubeFavorites />
@@ -28,32 +28,32 @@ const Home = () => {
       <Contact />
       
       {/* Footer */}
-      <footer className="bg-black border-t border-gray-800 py-8">
+      <footer className="bg-black border-t border-green-400/30 py-8 retro-section">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2025 soldier0x00. Built with React & Passion for Cybersecurity.
+            <div className="text-gray-400 text-sm mb-4 md:mb-0 font-mono">
+              © 2025 soldier0x00. Built with React & Neural Networks.
             </div>
             <div className="flex space-x-6">
               <a
                 href="https://soldier0x00.medium.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
+                className="text-gray-400 hover:text-green-400 transition-colors font-mono tracking-wider"
               >
-                Medium
+                MEDIUM.dll
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
+                className="text-gray-400 hover:text-cyan-400 transition-colors font-mono tracking-wider"
               >
-                LinkedIn
+                LINKEDIN.exe
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
+                className="text-gray-400 hover:text-yellow-400 transition-colors font-mono tracking-wider"
               >
-                GitHub
+                GITHUB.sys
               </a>
             </div>
           </div>
