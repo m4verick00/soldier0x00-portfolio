@@ -262,9 +262,6 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
   const handleKeyDown = (e) => {
     if (!isInitialized) return;
 
-    // Play typing sound
-    audioManager.playKeypress();
-
     switch (e.key) {
       case 'ArrowUp':
         e.preventDefault();
