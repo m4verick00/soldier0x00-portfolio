@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useTheme } from '../contexts/ThemeContext';
 
 const SecurityAlert = () => {
   const [alert, setAlert] = useState(null);
-  const { isDarkMode } = useTheme();
+  const isDarkMode = true; // Always dark mode
 
   useEffect(() => {
     const handleMaliciousInput = (event) => {
