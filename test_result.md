@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the portfolio website backend API that I've just built. The backend has the following endpoints that need to be tested: Health Check (GET /api/ and GET /api/health), Contact Form (POST /api/contact/), Newsletter (POST /api/newsletter/subscribe), Analytics (POST /api/analytics/track), Blog (GET /api/blog/posts, GET /api/blog/categories). Test all scenarios including error handling, database persistence, and CORS headers."
+user_problem_statement: "Test the cybersecurity portfolio website frontend comprehensively. This is a single-page application with the following sections and functionality that need testing: Terminal Hero Section (animated typing effect, cyberpunk styling, CTA buttons), Navigation (smooth scrolling between sections, mobile menu, active section highlighting), About Section (professional background, stats, education, certifications), Experience Section (interactive timeline with Data Integration Specialist and Cyber Threat Hunter roles), Skills Section (categorized tech skills with animated progress bars), Projects Section (showcasing TAG, ITACHI, Olympics work), YouTube Favorites (categorized by cybersecurity specialization areas), Blog Section (newsletter subscription form with backend integration), Contact Section (contact form with backend integration). Test navigation & scrolling, contact form, newsletter subscription, interactive elements, mobile responsiveness, visual elements, external links, and error handling."
 
 backend:
   - task: "Health Check Endpoints"
