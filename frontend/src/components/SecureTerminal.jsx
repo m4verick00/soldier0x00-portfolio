@@ -377,29 +377,33 @@ const SecureTerminal = ({ onCommand }) => {
           e.stopPropagation();
         }}
       >
-        <div className="whitespace-pre-wrap">
+        <div className="whitespace-pre-wrap break-words">
           {commandHistory.map((entry, idx) => (
             <div key={idx} className="mb-1">
               {entry.command ? (
-                <div className="text-cyan-400">$ {entry.command}</div>
+                <div className="text-cyan-400 flex flex-wrap items-start">
+                  <span className="shrink-0">$ </span>
+                  <span className="break-all">{entry.command}</span>
+                </div>
               ) : null}
               {entry.output.map((line, lineIdx) => (
-                <div key={lineIdx} className="text-green-400 leading-relaxed">
+                <div key={lineIdx} className="text-green-400 leading-relaxed break-words">
                   {entry.command ? line : `${line}`}
                 </div>
               ))}
             </div>
           ))}
           {isActive && isInitialized && (
-            <div className="flex items-center">
-              <span className="text-cyan-400">$ </span>
+            <div className="flex items-start min-h-[48px]"> {/* Ensure touch target height */}
+              <span className="text-cyan-400 shrink-0">$ </span>
               <input
                 ref={inputRef}
                 type="text"
                 value={commandInput}
                 onChange={handleInputChange}
                 onKeyPress={handleKeyPress}
-                className="bg-transparent border-none outline-none text-green-400 font-mono flex-1 ml-1 text-sm"
+                className="bg-transparent border-none outline-none text-green-400 font-mono flex-1 ml-1"
+                style={{ fontSize: 'clamp(16px, 4vw, 14px)' }} // Mobile-friendly font size
                 maxLength={100}
                 autoComplete="off"
                 autoCorrect="off"
@@ -409,7 +413,7 @@ const SecureTerminal = ({ onCommand }) => {
             </div>
           )}
           {!isActive && isInitialized && (
-            <div className="text-green-400/60 animate-pulse">
+            <div className="text-green-400/60 animate-pulse min-h-[48px] flex items-center">
               $ Click to activate secure terminal...
             </div>
           )}
