@@ -147,8 +147,14 @@ const LiveThreatCounter = () => {
       </div>
 
       {cveData.error && (
-        <div className="mb-4 p-3 bg-yellow-900/30 border border-yellow-500 rounded text-yellow-400 text-xs font-mono">
-          ⚠️ {cveData.error}
+        <div className={`mb-4 p-3 rounded border text-xs font-mono ${
+          cveData.error.includes('CISA KEV') 
+            ? 'bg-blue-900/30 border-blue-500 text-blue-400' 
+            : cveData.error.includes('simulated')
+            ? 'bg-orange-900/30 border-orange-500 text-orange-400'
+            : 'bg-yellow-900/30 border-yellow-500 text-yellow-400'
+        }`}>
+          ℹ️ {cveData.error}
         </div>
       )}
 
