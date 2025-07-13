@@ -143,24 +143,6 @@ const Navigation = () => {
                     {item.external && <span className="ml-1 text-xs">↗</span>}
                   </button>
                 ))}
-                
-                {/* Mobile CTA Buttons */}
-                <div className="pt-4 border-t border-gray-700 space-y-3">
-                  <a
-                    href="https://soldier0x00.medium.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center px-4 py-3 border border-cyan-400 text-cyan-400 rounded-lg font-medium transition-all duration-300 hover:bg-cyan-400 hover:text-black"
-                  >
-                    Medium Blog
-                  </a>
-                  <button
-                    onClick={() => scrollToSection('#contact')}
-                    className="block w-full px-4 py-3 bg-cyan-500 text-black rounded-lg font-medium transition-all duration-300 hover:bg-cyan-400"
-                  >
-                    Hire Me
-                  </button>
-                </div>
               </div>
             </div>
           </div>
