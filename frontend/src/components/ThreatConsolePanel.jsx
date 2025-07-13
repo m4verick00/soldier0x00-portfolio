@@ -23,12 +23,13 @@ const ThreatConsolePanel = () => {
 
     switch(action) {
       case 'pwned-check':
-        addTerminalOutput('Connecting to Have I Been Pwned API...', 'info');
+        addTerminalOutput('Redirecting to Have I Been Pwned official website...', 'info');
         setTimeout(() => {
-          addTerminalOutput('🔍 BREACH CHECK INTERFACE LOADED', 'success');
-          addTerminalOutput('Enter email or domain in the input field below to check for breaches.', 'info');
-          addTerminalOutput('Note: This is a demo interface. Real implementation would connect to HIBP API.', 'warning');
-        }, 2000);
+          addTerminalOutput('🔍 OPENING OFFICIAL BREACH CHECK INTERFACE', 'success');
+          addTerminalOutput('Redirecting to https://haveibeenpwned.com/', 'info');
+          window.open('https://haveibeenpwned.com/', '_blank');
+          addTerminalOutput('Official Have I Been Pwned website opened in new tab.', 'success');
+        }, 1500);
         break;
 
       case 'cve-latest':
