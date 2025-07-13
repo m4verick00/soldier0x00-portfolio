@@ -159,13 +159,18 @@ const LiveThreatCounter = () => {
 
   useEffect(() => {
     // Initial fetch
-    fetchCVEData();
+    fetchCVEData(selectedDatabase);
     
     // Set up polling every 5 minutes (300000ms)
-    const interval = setInterval(fetchCVEData, 300000);
+    const interval = setInterval(() => fetchCVEData(selectedDatabase), 300000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [selectedDatabase]);
+
+  const handleDatabaseChange = (database) => {
+    setSelectedDatabase(database);
+    fetchCVEData(database);
+  };
 
   const formatNumber = (num) => {
     return num.toLocaleString();
