@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import "./styles/retro.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ThemeProvider, useTheme } from "./contexts/ThemeContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 // Import components
 import Navigation from "./components/Navigation";
