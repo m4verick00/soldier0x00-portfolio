@@ -80,7 +80,8 @@ const Blog = () => {
       blue: { bg: 'bg-blue-500/20', border: 'border-blue-400/30', text: 'text-blue-400' },
       green: { bg: 'bg-green-500/20', border: 'border-green-400/30', text: 'text-green-400' },
       cyan: { bg: 'bg-cyan-500/20', border: 'border-cyan-400/30', text: 'text-cyan-400' },
-      yellow: { bg: 'bg-yellow-500/20', border: 'border-yellow-400/30', text: 'text-yellow-400' }
+      yellow: { bg: 'bg-yellow-500/20', border: 'border-yellow-400/30', text: 'text-yellow-400' },
+      orange: { bg: 'bg-orange-500/20', border: 'border-orange-400/30', text: 'text-orange-400' }
     };
     return colorMap[color] || colorMap.cyan;
   };
@@ -104,7 +105,7 @@ const Blog = () => {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-cyan-500 mx-auto mb-6"></div>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-              Insights, tutorials, and experiences in cybersecurity, threat hunting, and AI implementation
+              Insights, tutorials, and experiences in cybersecurity, threat hunting, data integration, and AI implementation
             </p>
             
             {/* Medium Link */}
