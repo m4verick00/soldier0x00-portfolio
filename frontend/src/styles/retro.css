@@ -96,9 +96,16 @@
 
 /* Scanlines */
 .scanlines {
-  background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.02) 50%);
+  background: linear-gradient(transparent 50%, var(--glow-primary) 50%);
   background-size: 100% 2px;
   animation: scanline-move 0.1s linear infinite;
+  opacity: 0.4;
+}
+
+/* Light mode scanlines */
+.light .scanlines {
+  background: linear-gradient(transparent 50%, rgba(0, 119, 0, 0.08) 50%);
+  opacity: 0.6;
 }
 
 @keyframes scanline-move {
