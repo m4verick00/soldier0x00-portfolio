@@ -212,28 +212,18 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
     ],
 
     audio: (action = '') => {
-      if (action === 'toggle') {
-        if (audioManager.isEnabled) {
-          audioManager.disable();
-          return ['Audio system disabled'];
-        } else {
-          audioManager.enable();
-          return ['Audio system enabled'];
-        }
-      }
       return [
-        'Audio Commands:',
-        'audio toggle - Enable/disable audio',
-        'stealth      - Toggle professional mode'
+        'Audio system has been disabled for security reasons.',
+        'All audio features have been permanently removed.',
+        'Focus on the visual cybersecurity experience instead.'
       ];
     },
 
     stealth: () => {
-      const isProfessional = audioManager.toggleProfessionalMode();
       return [
-        isProfessional 
-          ? 'Professional mode activated - Audio muted for stealth operations'
-          : 'Professional mode deactivated - Audio restored'
+        'Stealth mode: Always active',
+        'Professional mode: Always enabled',
+        'Audio system: Permanently disabled for security'
       ];
     }
   };
