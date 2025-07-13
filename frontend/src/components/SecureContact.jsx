@@ -183,7 +183,9 @@ const SecureContact = () => {
       cyan: { bg: 'bg-cyan-500/20', border: 'border-cyan-400/30', text: 'text-cyan-400' },
       blue: { bg: 'bg-blue-500/20', border: 'border-blue-400/30', text: 'text-blue-400' },
       purple: { bg: 'bg-purple-500/20', border: 'border-purple-400/30', text: 'text-purple-400' },
-      green: { bg: 'bg-green-500/20', border: 'border-green-400/30', text: 'text-green-400' }
+      green: { bg: 'bg-green-500/20', border: 'border-green-400/30', text: 'text-green-400' },
+      pink: { bg: 'bg-pink-500/20', border: 'border-pink-400/30', text: 'text-pink-400' },
+      twitter: { bg: 'bg-blue-400/20', border: 'border-blue-300/30', text: 'text-blue-300' }
     };
     return colorMap[color] || colorMap.cyan;
   };
