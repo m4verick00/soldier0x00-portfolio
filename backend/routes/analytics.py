@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 import logging
 from collections import defaultdict
 
-from ..models import PageView, AnalyticsSummary
-from ..database import (
+from models import PageView, AnalyticsSummary
+from database import (
     get_page_views_collection, 
     get_contact_messages_collection,
     get_newsletter_collection
