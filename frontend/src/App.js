@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
-      <RetroTerminalHero />
+      <InteractiveTerminalHero />
       <About />
       <RetroExperience />
       <Skills />
@@ -44,16 +44,20 @@ const Home = () => {
                 MEDIUM.dll
               </a>
               <a
-                href="#"
+                href="https://linkedin.com/in/sai-harsha-vardhan/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-cyan-400 transition-colors font-mono tracking-wider"
               >
                 LINKEDIN.exe
               </a>
               <a
-                href="#"
-                className="text-gray-400 hover:text-yellow-400 transition-colors font-mono tracking-wider"
+                href="https://tryhackme.com/p/soldier0x00"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-purple-400 transition-colors font-mono tracking-wider"
               >
-                GITHUB.sys
+                TRYHACKME.sys
               </a>
             </div>
           </div>
