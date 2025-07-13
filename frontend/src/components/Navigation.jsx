@@ -10,6 +10,7 @@ const Navigation = () => {
     { id: 'about', label: 'About', href: '#about' },
     { id: 'experience', label: 'Career', href: '#experience' },
     { id: 'projects', label: 'Projects', href: '#projects' },
+    { id: 'blog', label: 'Blog', href: 'https://soldier0x00.medium.com/', external: true },
     { id: 'threat-console', label: 'Threat Intel', href: '#threat-console' },
     { id: 'contact', label: 'Contact', href: '#contact' }
   ];
