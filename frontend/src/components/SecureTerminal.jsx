@@ -72,7 +72,7 @@ const SecureTerminal = ({ onCommand }) => {
   // Initialize terminal with welcome messages using typewriter effect
   useEffect(() => {
     if (!isInitialized) {
-      preventGlobalScroll(); // Store current scroll position
+      lockScroll(); // Lock scrolling during terminal initialization
       
       const initMessages = [
         'INITIALIZING SECURE NEURAL INTERFACE...',
@@ -147,17 +147,17 @@ const SecureTerminal = ({ onCommand }) => {
           setIsInitialized(true);
           setIsTyping(false);
           
-          // Ensure scroll position is maintained after completion
+          // Unlock scrolling after completion
           setTimeout(() => {
-            restoreScrollPosition();
-          }, 100);
+            unlockScroll();
+          }, 500);
         }
       }, 50); // Character typing speed
 
       return () => {
         clearInterval(typewriterInterval);
-        // Always restore scroll position on cleanup
-        restoreScrollPosition();
+        // Always unlock scroll on cleanup
+        unlockScroll();
       };
     }
   }, [isInitialized]);
