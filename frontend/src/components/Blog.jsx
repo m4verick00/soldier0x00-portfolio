@@ -67,8 +67,8 @@ const Blog = () => {
       'AI & Security': 'purple',
       'Frameworks': 'blue',
       'Case Studies': 'green',
-      'Cloud Security': 'cyan',
-      'SOC Operations': 'yellow'
+      'Data Security': 'orange',
+      'AI & Automation': 'cyan'
     };
     return colorMap[category] || 'cyan';
   };
