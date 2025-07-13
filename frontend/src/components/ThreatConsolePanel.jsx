@@ -297,9 +297,21 @@ const ThreatConsolePanel = () => {
                           }`}>
                             [{output.timestamp}]
                           </span>
-                          <span className={`ml-2 ${getMessageColor(output.type)}`}>
-                            {output.message}
-                          </span>
+                          {output.type === 'link' ? (
+                            <span 
+                              className={`ml-2 ${getMessageColor(output.type)}`}
+                              onClick={() => {
+                                const url = output.message.match(/https?:\/\/[^\s]+/)?.[0];
+                                if (url) window.open(url, '_blank');
+                              }}
+                            >
+                              {output.message}
+                            </span>
+                          ) : (
+                            <span className={`ml-2 ${getMessageColor(output.type)}`}>
+                              {output.message}
+                            </span>
+                          )}
                         </div>
                       ))
                     )}
