@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useAnalytics } from "./hooks/useAnalytics";
 
 // Import components
 import Navigation from "./components/Navigation";
@@ -15,9 +14,6 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 
 const Home = () => {
-  // Track page view
-  useAnalytics('homepage');
-
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
