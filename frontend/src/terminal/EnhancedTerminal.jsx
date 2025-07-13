@@ -427,12 +427,12 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
         {commandHistory.map((entry, idx) => (
           <div key={idx} className="mb-2">
             {entry.command && (
-              <div className="text-green-400">
-                <span className="text-gray-500">[{entry.timestamp}]</span> {entry.command}
+              <div className="text-cyan-400">
+                <span className="text-gray-500">[{entry.timestamp}]</span> $ {entry.command}
               </div>
             )}
             {entry.output.map((line, lineIdx) => (
-              <div key={lineIdx} className="text-gray-300 whitespace-pre-wrap">
+              <div key={lineIdx} className="text-green-400 whitespace-pre-wrap leading-relaxed">
                 {line}
               </div>
             ))}
