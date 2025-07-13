@@ -82,17 +82,17 @@ const InteractiveTerminalHero = () => {
 
   return (
     <section className={`min-h-screen bg-black relative overflow-hidden flex items-center retro-crt ${matrixMode ? 'matrix-active' : ''}`}>
-      {/* Enhanced Matrix Rain Background */}
-      <div className={`absolute inset-0 pointer-events-none ${matrixMode ? 'opacity-60' : 'opacity-15'} transition-opacity duration-1000`}>
-        {matrixChars.map((char, i) => (
+      {/* Matrix Rain Effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {matrixChars.map((char) => (
           <div
-            key={`${char.id}-${i}`}
-            className={`absolute text-green-400 text-sm font-mono ${matrixMode ? 'animate-pulse' : ''}`}
+            key={char.id}
+            className="absolute text-green-400 font-mono opacity-80"
             style={{
-              left: `${i * 20}px`,
+              left: `${char.id * 20}px`,
               top: `${char.y}px`,
-              textShadow: '0 0 10px #00ff00',
-              fontSize: matrixMode ? '18px' : '14px',
+              textShadow: '0 0 8px #00ff00, 0 0 12px #00ff00',
+              fontSize: matrixMode ? (window.innerWidth < 768 ? '16px' : '18px') : (window.innerWidth < 768 ? '12px' : '14px'),
               transition: 'font-size 0.3s ease'
             }}
           >
