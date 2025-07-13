@@ -67,7 +67,6 @@ const InteractiveTerminalHero = () => {
 
   const triggerGlitch = () => {
     setGlitchActive(true);
-    audioManager.playGlitch();
     setTimeout(() => setGlitchActive(false), 200);
   };
 
