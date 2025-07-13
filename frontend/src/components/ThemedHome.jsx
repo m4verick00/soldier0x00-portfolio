@@ -8,6 +8,7 @@ import About from './About';
 import RetroExperience from './RetroExperience';
 import RetroSkills from './RetroSkills';
 import RetroProjects from './RetroProjects';
+import ThreatConsolePanel from './ThreatConsolePanel';
 import YouTubeFavorites from './YouTubeFavorites';
 import Blog from './Blog';
 import Contact from './Contact';
