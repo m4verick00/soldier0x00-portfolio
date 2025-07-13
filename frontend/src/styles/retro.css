@@ -29,6 +29,45 @@
   --glow-secondary: rgba(0, 119, 170, 0.15);
 }
 
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  /* Ensure all containers respect viewport width */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Mobile touch targets */
+  button, a, input, select {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Improve mobile spacing */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Mobile terminal optimizations */
+  .retro-terminal {
+    max-width: calc(100vw - 2rem);
+    margin: 0 auto;
+  }
+  
+  /* Mobile font scaling */
+  .retro-terminal .font-mono {
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: 1.4;
+  }
+}
+
 /* Theme-aware backgrounds */
 .theme-bg-primary {
   background-color: var(--bg-primary);
