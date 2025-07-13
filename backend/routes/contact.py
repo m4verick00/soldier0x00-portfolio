@@ -3,8 +3,8 @@ from typing import List
 from datetime import datetime, timedelta
 import logging
 
-from ..models import ContactMessage, ContactMessageCreate, ContactResponse, MessageResponse
-from ..database import get_contact_messages_collection, get_page_views_collection
+from models import ContactMessage, ContactMessageCreate, ContactResponse, MessageResponse
+from database import get_contact_messages_collection, get_page_views_collection
 
 router = APIRouter(prefix="/contact", tags=["Contact"])
 logger = logging.getLogger(__name__)
