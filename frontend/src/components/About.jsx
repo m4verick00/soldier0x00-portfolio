@@ -14,7 +14,7 @@ const About = () => {
           {/* Retro Section Header */}
           <div className="text-center mb-20">
             <div className="inline-block mb-6">
-              <span className="text-sm uppercase tracking-widest text-green-400 font-bold retro-label">NEURAL_PROFILE.sys</span>
+              <span className="text-sm uppercase tracking-widest text-cyan-400 font-bold retro-label">NEURAL_PROFILE.sys</span>
             </div>
             <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight retro-title">
               cyber
