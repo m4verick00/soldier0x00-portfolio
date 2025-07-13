@@ -30,7 +30,7 @@ const RetroExperience = () => {
       title: 'Cyber Threat Hunter',
       company: 'Atos',
       location: 'Bengaluru, IN',
-      period: 'Advanced Role',
+      period: 'Advanced Role - Threat Hunting Team',
       type: 'Managed Detection & Response - Threat Hunting',
       highlights: [
         'Proactively hunted advanced threats by analyzing behavioral patterns, SIEM logs, and threat intelligence to uncover persistence mechanisms, C2 activity, lateral movement, and data exfiltration risks',
@@ -50,7 +50,7 @@ const RetroExperience = () => {
       title: 'Production Support Engineer (L3)',
       company: 'Atos',
       location: 'Bengaluru, IN',
-      period: 'Initial Role',
+      period: 'Initial Role - Customer Support Across Regions',
       type: 'Level 3 Support & Customer Solutions',
       highlights: [
         'Provided advanced technical support as Level 3 engineer for complex production environments across multiple regions',
@@ -69,73 +69,9 @@ const RetroExperience = () => {
     },
     {
       title: 'Cybersecurity Instructor',
-      company: 'Teaching & Mentoring',
-      location: 'Various Platforms',
-      period: 'Career Foundation',
-      type: 'Education & Knowledge Sharing',
-      highlights: [
-        'Educated next-generation cybersecurity professionals on networking and security fundamentals',
-        'Created comprehensive training content and conducted hands-on workshops for aspiring professionals',
-        'Developed curriculum covering essential cybersecurity concepts and practical implementation',
-        'Mentored students and professionals transitioning into cybersecurity careers',
-        'Built communication and leadership skills that enhanced technical career progression',
-        'Established foundation knowledge that supported transition into enterprise cybersecurity roles'
-      ],
-      technologies: ['Cybersecurity Education', 'Networking Fundamentals', 'Security Training', 'Workshop Facilitation'],
-      achievements: [
-        'Successfully trained multiple cohorts of cybersecurity professionals',
-        'Developed engaging training materials and practical exercises',
-        'Built strong foundation in cybersecurity principles that enabled career advancement'
-      ]
-    }
-      company: 'Atos',
-      location: 'Bengaluru, IN',
-      period: 'April 2022 – June 2025',
-      type: 'Managed Detection & Response - Threat Hunting',
-      highlights: [
-        'Proactively hunted advanced threats by analyzing behavioral patterns, SIEM logs, and threat intelligence to uncover persistence mechanisms, C2 activity, lateral movement, and data exfiltration risks',
-        'Analyzed emerging APT tactics, malware trends, and attacker behaviors to update detection strategies and preemptively close security gaps',
-        'Mapped adversarial techniques to MITRE ATT&CK, designing threat models to prioritize risks and recommend mitigations that harden organizational defenses',
-        'Optimized threat-hunting efficiency by refining detection rules, correlating logs from SIEM/EDR/cloud tools, and streamlining workflows to accelerate incident investigations',
-        'Collaborated with security teams to share intelligence-driven insights, strengthen detection capabilities, and improve organization resilience against evolving threats'
-      ],
-      technologies: ['SIEM', 'EDR', 'MITRE ATT&CK', 'Threat Intelligence', 'Log Analysis', 'APT Detection'],
-      achievements: [
-        '96% SLA achievement in client case management',
-        '99.99% uptime during Paris 2024 Olympics security operations',
-        '30% increase in log processing speed optimization'
-      ]
-    },
-    {
-      title: 'DevSecOps Engineer - AIsaac SIEM & SOAR',
-      company: 'Atos',
-      location: 'Bengaluru, IN', 
-      period: 'April 2022 – June 2025',
-      type: 'SIEM Architecture & Production Operations',
-      highlights: [
-        'Architected and maintained backend infrastructure for AIsaac proprietary SIEM & SOAR platform',
-        'Utilized Apache NiFi for data integration, managed scalable infrastructure on Azure and AWS, optimized RabbitMQ for improved throughput',
-        'Deployed high-availability Kubernetes cluster on AWS using EKS for enterprise-scale security operations',
-        '🏅 PARIS 2024 OLYMPICS CRITICAL PROJECT: Selected as part of elite 7-member AIsaac Threat Management (Connector Engineering) team supporting Paris 2024 Olympics cybersecurity operations',
-        '🥇 Engineered and optimized Java-based connectors and log parsers for critical infrastructure protection during the Olympic Games, maintaining 99.99% uptime',
-        'Employed in-house SIEM tools for threat detection and log analysis, handling incidents for diverse devices including EDR, XDR, Firewalls, and Office 365 services',
-        'Managed client cases on Wrike and ServiceNOW, achieving 96% SLA, and created KBS articles for complex issues',
-        'Demonstrated expertise in troubleshooting system fundamentals while implementing Prometheus for proactive monitoring, incident response, and vulnerability patching'
-      ],
-      technologies: ['AIsaac SIEM', 'Apache NiFi', 'Kubernetes', 'AWS', 'Azure', 'RabbitMQ', 'Prometheus', 'DevSecOps', 'Java', 'Critical Infrastructure'],
-      achievements: [
-        'Designed end-to-end SIEM architecture understanding applicable to any enterprise security platform',
-        'Optimized log processing throughput by 40% through custom connector development',
-        '🏆 PARIS 2024 OLYMPICS: 99.99% uptime for critical log parsing systems during Olympic Games with zero security incidents',
-        'Part of elite 7-member engineering team for global-scale cybersecurity operations',
-        'Gained comprehensive understanding of SIEM data flows and threat detection pipelines'
-      ]
-    },
-    {
-      title: 'Networking & Security Instructor',
       company: 'Technology Training Institute',
       location: 'Bengaluru, IN',
-      period: 'September 2021 – March 2022 (7 months)',
+      period: 'Career Foundation - 8 Months',
       type: 'Education & Training - Cybersecurity Foundation',
       highlights: [
         'Taught comprehensive networking fundamentals including TCP/IP, OSI model, routing protocols, and network topologies to aspiring cybersecurity professionals',
@@ -147,7 +83,7 @@ const RetroExperience = () => {
       ],
       technologies: ['Network Security', 'Ethical Hacking', 'Penetration Testing', 'Firewalls', 'IDS/IPS', 'TCP/IP', 'Cybersecurity Training'],
       achievements: [
-        'Successfully trained 50+ students in networking and cybersecurity fundamentals',
+        'Successfully trained multiple cohorts of cybersecurity professionals',
         'Developed comprehensive hands-on lab curriculum for practical security learning',
         'Built strong foundation in cybersecurity education and knowledge transfer',
         'Enhanced communication and technical presentation skills crucial for cybersecurity roles'
