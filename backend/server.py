@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import os
 import logging
+import time
 from pathlib import Path
 
 # Import database connection functions
