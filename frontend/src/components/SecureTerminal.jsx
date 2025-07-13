@@ -267,17 +267,21 @@ const SecureTerminal = ({ onCommand }) => {
       </div>
       
       {/* Terminal Content */}
-      <div className="p-4 sm:p-6 h-64 sm:h-80 font-mono text-green-400 text-xs bg-black retro-screen overflow-y-auto">
+      <div className="p-4 sm:p-6 h-64 sm:h-80 font-mono text-green-400 text-sm bg-black retro-screen overflow-y-auto">
         <div className="whitespace-pre-wrap">
           {commandHistory.map((entry, idx) => (
-            <div key={idx}>
-              <div className="text-cyan-400">$ {entry.command}</div>
+            <div key={idx} className="mb-1">
+              {entry.command ? (
+                <div className="text-cyan-400">$ {entry.command}</div>
+              ) : null}
               {entry.output.map((line, lineIdx) => (
-                <div key={lineIdx} className="text-green-400">{line}</div>
+                <div key={lineIdx} className="text-green-400 leading-relaxed">
+                  {entry.command ? line : `${line}`}
+                </div>
               ))}
             </div>
           ))}
-          {isActive && (
+          {isActive && isInitialized && (
             <div className="flex items-center">
               <span className="text-cyan-400">$ </span>
               <input
@@ -286,7 +290,7 @@ const SecureTerminal = ({ onCommand }) => {
                 value={commandInput}
                 onChange={handleInputChange}
                 onKeyPress={handleKeyPress}
-                className="bg-transparent border-none outline-none text-green-400 font-mono flex-1 ml-1"
+                className="bg-transparent border-none outline-none text-green-400 font-mono flex-1 ml-1 text-sm"
                 maxLength={100}
                 autoComplete="off"
                 autoCorrect="off"
@@ -295,9 +299,9 @@ const SecureTerminal = ({ onCommand }) => {
               />
             </div>
           )}
-          {!isActive && (
+          {!isActive && isInitialized && (
             <div className="text-green-400/60 animate-pulse">
-              Click to activate secure terminal...
+              $ Click to activate secure terminal...
             </div>
           )}
         </div>
