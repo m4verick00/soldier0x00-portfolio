@@ -155,11 +155,7 @@ const InteractiveTerminalHero = () => {
             </div>
 
             {/* Retro Stats Grid */}
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-green-400/30">
-              <div className="text-center retro-stat">
-                <div className="text-xl sm:text-2xl font-bold text-green-400 neon-glow">4.0+</div>
-                <div className="text-gray-400 text-xs tracking-wider">YEARS_EXPERIENCE</div>
-              </div>
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-green-400/30">
               <div className="text-center retro-stat">
                 <div className="text-xl sm:text-2xl font-bold text-yellow-400 neon-glow">∞</div>
                 <div className="text-gray-400 text-xs tracking-wider">NEURAL_CAPACITY</div>
