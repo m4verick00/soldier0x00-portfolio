@@ -302,17 +302,16 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
     }
   }, [isBooting]);
 
-  // Auto-scroll to bottom with better handling
+  // Auto-scroll to bottom with better handling - only when typing or new commands
   useEffect(() => {
-    if (terminalRef.current) {
+    if (terminalRef.current && (isBooting || commandHistory.length > 0)) {
       const scrollElement = terminalRef.current;
-      // Smooth scroll to bottom
-      scrollElement.scrollTo({
-        top: scrollElement.scrollHeight,
-        behavior: 'smooth'
-      });
+      // Only scroll during boot or when new commands are added
+      if (isBooting || commandHistory[commandHistory.length - 1]?.isTyping) {
+        scrollElement.scrollTop = scrollElement.scrollHeight;
+      }
     }
-  }, [commandHistory]);
+  }, [commandHistory, isBooting]);
 
   // Handle keyboard input
   const handleKeyDown = (e) => {
