@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import "./styles/retro.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import components
 import Navigation from "./components/Navigation";
-import TerminalHero from "./components/TerminalHero";
+import RetroTerminalHero from "./components/RetroTerminalHero";
 import About from "./components/About";
-import Experience from "./components/Experience";
+import RetroExperience from "./components/RetroExperience";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import YouTubeFavorites from "./components/YouTubeFavorites";
