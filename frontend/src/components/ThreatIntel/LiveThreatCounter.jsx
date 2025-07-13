@@ -213,7 +213,7 @@ const LiveThreatCounter = () => {
 
       {/* Data Source */}
       <div className="mt-3 text-xs text-gray-500 font-mono text-center">
-        Data source: CIRCL CVE Database | Enhanced threat intelligence
+        Data source: NVD API 2.0 | NIST National Vulnerability Database
       </div>
     </div>
   );
