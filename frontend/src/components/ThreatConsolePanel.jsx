@@ -37,9 +37,14 @@ const ThreatConsolePanel = () => {
         setTimeout(() => {
           addTerminalOutput('📊 LATEST CVE VULNERABILITIES:', 'success');
           addTerminalOutput('CVE-2024-XXXX: Critical RCE in Popular Framework', 'error');
+          addTerminalOutput('  └─ Remote code execution via deserialization flaw', 'warning');
           addTerminalOutput('CVE-2024-YYYY: High Severity SQL Injection', 'warning');
+          addTerminalOutput('  └─ Blind SQL injection in authentication bypass', 'warning');
           addTerminalOutput('CVE-2024-ZZZZ: Medium Privilege Escalation', 'warning');
+          addTerminalOutput('  └─ Local privilege escalation via kernel exploit', 'warning');
           addTerminalOutput('Full details available at nvd.nist.gov', 'info');
+          addTerminalOutput('Opening official NVD website...', 'info');
+          window.open('https://nvd.nist.gov/vuln/search', '_blank');
         }, 2500);
         break;
 
