@@ -332,7 +332,7 @@ const ThreatConsolePanel = () => {
                     isDarkMode ? 'text-blue-400' : 'text-blue-600'
                   }`}>LIVE_DDOS_MAP.feed</h3>
                   
-                  <div className="aspect-video rounded overflow-hidden border border-blue-400/30">
+                  <div className="aspect-video rounded overflow-hidden border border-blue-400/30 relative group">
                     <iframe 
                       src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" 
                       width="100%" 
@@ -341,6 +341,12 @@ const ThreatConsolePanel = () => {
                       className="w-full h-full"
                       allow="fullscreen"
                     />
+                    <button
+                      onClick={() => window.open('https://cybermap.kaspersky.com/', '_blank')}
+                      className="absolute top-2 right-2 bg-black/80 text-blue-400 px-3 py-1 rounded text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black hover:text-blue-300"
+                    >
+                      FULLSCREEN
+                    </button>
                   </div>
                   
                   <div className={`mt-4 text-xs font-mono opacity-75 ${
