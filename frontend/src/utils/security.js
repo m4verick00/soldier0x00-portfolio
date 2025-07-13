@@ -7,6 +7,41 @@
 export const sanitizeInput = (input) => {
   if (typeof input !== 'string') return '';
   
+  // Check for malicious patterns and respond with humor
+  const maliciousPatterns = [
+    /(<script|javascript:|data:text\/html|vbscript:|onload|onerror)/gi,
+    /(union\s+select|drop\s+table|insert\s+into|delete\s+from)/gi,
+    /(<iframe|<object|<embed|<applet)/gi,
+    /(eval\s*\(|setTimeout\s*\(|setInterval\s*\()/gi,
+    /(\.\.\/|\.\.\\|\/etc\/passwd|\/windows\/system32)/gi
+  ];
+  
+  const funResponses = [
+    "🛡️ Nice try, but this site is bulletproof! soldier0x00 isn't falling for that one.",
+    "🕵️‍♂️ Malicious code detected! Did you really think a cybersecurity guy wouldn't see that coming?",
+    "⚠️ Security alert! That's some spicy payload you got there, but this fortress is unbreachable.",
+    "🔒 Access denied! Your hacking attempt has been logged and sent to the cyber police (just kidding, but seriously, stop).",
+    "🚨 Threat detected! Nice injection attempt, but I've seen better from script kiddies.",
+    "💀 Malware detected! This site is protected by the power of proper input sanitization!"
+  ];
+  
+  for (let pattern of maliciousPatterns) {
+    if (pattern.test(input)) {
+      // Trigger fun alert (this would be handled by the calling component)
+      const randomResponse = funResponses[Math.floor(Math.random() * funResponses.length)];
+      console.warn('🚨 SECURITY ALERT:', randomResponse);
+      
+      // Store the detection for analytics (non-malicious way)
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('maliciousInputDetected', {
+          detail: { type: 'pattern_detected', message: randomResponse }
+        }));
+      }
+      
+      return ''; // Return empty string for malicious input
+    }
+  }
+  
   // Remove potentially dangerous characters and scripts
   return input
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '') // Remove script tags
