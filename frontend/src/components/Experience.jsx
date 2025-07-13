@@ -5,10 +5,30 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: 'Data Integration Specialist',
+      company: 'Current Company',
+      location: 'Remote/Hybrid',
+      period: 'Present',
+      type: 'Cybersecurity Data Integration & Pipeline Engineering',
+      highlights: [
+        'Develop and optimize data pipelines for cybersecurity analytics and threat intelligence integration',
+        'Implement middleware technologies to enhance security data processing and correlation capabilities',
+        'Design scalable data integration solutions for real-time threat detection and incident response',
+        'Bridge cybersecurity operations with advanced data engineering for improved threat visibility',
+        'Optimize data flows between security tools, SIEM platforms, and threat intelligence feeds'
+      ],
+      technologies: ['Data Pipelines', 'Middleware', 'ETL/ELT', 'Security Analytics', 'Real-time Processing'],
+      achievements: [
+        'Enhanced threat intelligence correlation through optimized data pipelines',
+        'Improved security data processing efficiency and real-time analysis',
+        'Integrated multiple security data sources for comprehensive threat visibility'
+      ]
+    },
+    {
       title: 'Cyber Threat Hunter',
       company: 'Atos',
       location: 'Bengaluru, IN',
-      period: 'April 2022 – Present',
+      period: 'April 2022 – 2024',
       type: 'Managed Detection & Response - Threat Hunting',
       highlights: [
         'Proactively hunt advanced threats by analyzing behavioral patterns, SIEM logs, and threat intelligence',
