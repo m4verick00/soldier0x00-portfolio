@@ -27,11 +27,27 @@ const Contact = () => {
     setSubmitMessage('');
     
     try {
-      const response = await contactAPI.sendMessage(formData);
-      
-      setSubmitStatus('success');
-      setSubmitMessage(response.message);
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      // For Netlify deployment, use Netlify Forms
+      const formData = new FormData();
+      formData.append('form-name', 'contact');
+      formData.append('name', formData.name);
+      formData.append('email', formData.email);
+      formData.append('subject', formData.subject);
+      formData.append('message', formData.message);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setSubmitMessage("Your message has been sent successfully! I'll get back to you within 24-48 hours.");
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Form submission failed');
+      }
       
       // Clear status after 5 seconds
       setTimeout(() => {
@@ -40,9 +56,8 @@ const Contact = () => {
       }, 5000);
       
     } catch (error) {
-      const errorInfo = handleApiError(error);
       setSubmitStatus('error');
-      setSubmitMessage(errorInfo.message);
+      setSubmitMessage('Failed to send message. Please try again or email me directly at cybersoldier0x00@protonmail.com');
       
       // Clear error after 5 seconds
       setTimeout(() => {
