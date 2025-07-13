@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import "./App.css";
 import "./styles/retro.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SimpleTest from "./components/SimpleTest";
+import ThemedHome from "./components/ThemedHome";
 
 const Home = () => {
-  return <SimpleTest />;
+  return <ThemedHome />;
 };
 
 function App() {
