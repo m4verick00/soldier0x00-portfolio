@@ -21,8 +21,8 @@ const Home = () => {
       <InteractiveTerminalHero />
       <About />
       <RetroExperience />
-      <Skills />
-      <Projects />
+      <RetroSkills />
+      <RetroProjects />
       <YouTubeFavorites />
       <Blog />
       <Contact />
