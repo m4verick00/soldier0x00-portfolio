@@ -76,12 +76,12 @@ const TerminalHero = () => {
               </span>
             </h1>
             <div className="text-2xl text-gray-300 mb-6">
-              <span className="text-cyan-400">Cyber Threat Hunter</span> | 
-              <span className="text-blue-400 ml-2">SOC Analyst</span> | 
+              <span className="text-cyan-400">Data Integration Specialist</span> | 
+              <span className="text-blue-400 ml-2">Cyber Threat Hunter</span> | 
               <span className="text-green-400 ml-2">AI Enthusiast</span>
             </div>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-              Proactively hunting advanced threats, analyzing behavioral patterns, and building the future of cybersecurity with AI
+              Enhancing cybersecurity through advanced data integration, threat hunting, and building the future of AI-powered security automation
             </p>
             
             {/* CTA Buttons */}
