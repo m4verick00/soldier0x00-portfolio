@@ -209,12 +209,6 @@ const Blog = () => {
                       {post.excerpt}
                     </p>
 
-                    {/* Meta Info */}
-                    <div className="flex items-center justify-between text-xs text-gray-400 mb-4">
-                      <span>{post.date}</span>
-                      <span>{post.readTime}</span>
-                    </div>
-
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1">
                       {post.tags.slice(0, 3).map((tag, tagIndex) => (
