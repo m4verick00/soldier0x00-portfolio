@@ -1,6 +1,6 @@
 [build]
   base = "frontend"
-  publish = "frontend/build"
+  publish = "build"
   command = "npx update-browserslist-db@latest && npm run build"
 
 [build.environment]
