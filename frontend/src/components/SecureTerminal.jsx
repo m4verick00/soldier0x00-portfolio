@@ -365,11 +365,12 @@ const SecureTerminal = ({ onCommand }) => {
       {/* Terminal Content */}
       <div 
         ref={terminalContainerRef}
-        className="p-4 sm:p-6 h-64 sm:h-80 font-mono text-green-400 text-sm bg-black retro-screen overflow-y-auto"
+        className="p-3 sm:p-4 md:p-6 h-64 sm:h-80 font-mono text-green-400 bg-black retro-screen overflow-y-auto"
         style={{
           scrollBehavior: 'smooth',
           // Prevent any scroll events from bubbling up
-          isolation: 'isolate'
+          isolation: 'isolate',
+          fontSize: 'clamp(16px, 4vw, 14px)', // Responsive font: 16px on mobile, 14px on desktop
         }}
         onScroll={(e) => {
           // Prevent scroll events from bubbling to parent
