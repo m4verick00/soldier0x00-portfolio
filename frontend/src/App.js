@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useAnalytics } from "./hooks/useAnalytics";
 
 // Import components
 import Navigation from "./components/Navigation";
@@ -14,6 +15,9 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 
 const Home = () => {
+  // Track page view
+  useAnalytics('homepage');
+
   return (
     <div className="min-h-screen bg-black text-white">
       <Navigation />
@@ -31,7 +35,7 @@ const Home = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 soldier0x00. Built with React & Passion for Cybersecurity.
+              © 2025 soldier0x00. Built with React & Passion for Cybersecurity.
             </div>
             <div className="flex space-x-6">
               <a
