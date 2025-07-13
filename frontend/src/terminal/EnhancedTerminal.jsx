@@ -180,18 +180,14 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
     ],
 
     easter: () => [
-      'EASTER EGG COLLECTION:',
-      '=====================',
-      'Found: ASCII art in HTML source code',
-      'Found: Konami code secret (try ↑↑↓↓←→←→BA)',
-      'Found: Matrix mode command',
-      'Found: Hidden security alerts for malicious input',
-      'Found: Boot sequence messages',
-      'Hidden: Check network tab for additional easter eggs',
-      'Hidden: Terminal command auto-completion',
-      'Secret: Audio system with cyberpunk ambience',
+      'EASTER EGG HUNT ACTIVATED...',
+      '============================',
+      'Hint: Try the Konami Code ↑↑↓↓←→←→BA',
+      'Hint: Check the HTML source for ASCII art',
+      'Hint: Some commands have hidden features',
+      'Hint: Matrix mode auto-exits after 5 seconds',
       '',
-      '🥚 You are a true digital archaeologist!'
+      '🕵️ Keep exploring, digital detective!'
     ],
 
     quotes: () => [
