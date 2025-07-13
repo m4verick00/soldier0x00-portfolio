@@ -59,6 +59,22 @@ const Home = () => {
               >
                 TRYHACKME.sys
               </a>
+              <a
+                href="https://www.instagram.com/harsha_soldier0x00"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-pink-400 transition-colors font-mono tracking-wider"
+              >
+                INSTAGRAM.dll
+              </a>
+              <a
+                href="https://x.com/soldier0x00"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-blue-400 transition-colors font-mono tracking-wider"
+              >
+                TWITTER.exe
+              </a>
             </div>
           </div>
         </div>
