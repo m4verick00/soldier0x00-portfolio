@@ -2,23 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import SecureTerminal from './SecureTerminal';
 
 const InteractiveTerminalHero = () => {
-  const [displayText, setDisplayText] = useState('');
-  const [currentLineIndex, setCurrentLineIndex] = useState(0);
-  const [showCursor, setShowCursor] = useState(true);
   const [matrixChars, setMatrixChars] = useState([]);
   const [glitchActive, setGlitchActive] = useState(false);
   const [konami, setKonami] = useState([]);
   const [matrixMode, setMatrixMode] = useState(false);
-
-  const terminalLines = [
-    '> INITIALIZING SECURE NEURAL INTERFACE...',
-    '> LOADING ENCRYPTED THREAT INTELLIGENCE...',
-    '> ESTABLISHING SECURE CYBER GRID CONNECTION...',
-    '> WELCOME TO soldier0x00.CYBERSPACE',
-    '> SECURITY STATUS: MAXIMUM ENCRYPTION',
-    '> TERMINAL STATUS: HARDENED & READY',
-    '> TYPE COMMANDS IN SECURE TERMINAL BELOW',
-  ];
 
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
 
