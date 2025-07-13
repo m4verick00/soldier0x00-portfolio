@@ -27,8 +27,8 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Profile Info */}
             <div className="space-y-8">
-              <div className="bg-black/80 backdrop-blur-sm border-2 border-green-400/30 rounded-lg p-8 retro-card">
-                <h3 className="text-2xl font-bold text-green-400 mb-6 tracking-wider font-mono">Threat Hunter & Cybersecurity Professional</h3>
+              <div className="bg-black/80 backdrop-blur-sm border-2 border-cyan-400/30 rounded-lg p-8 retro-card">
+                <h3 className="text-2xl font-bold text-cyan-400 mb-6 tracking-wider font-mono">Threat Hunter & Cybersecurity Professional</h3>
                 <div className="space-y-4 text-gray-300 leading-relaxed font-mono">
                   <p>
                     Currently serving as a Data Integration Specialist, engineering robust ETL pipelines, optimizing data processing workflows, 
