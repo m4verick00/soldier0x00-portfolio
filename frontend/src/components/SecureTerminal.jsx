@@ -236,6 +236,8 @@ const SecureTerminal = ({ onCommand }) => {
   };
 
   const handleSecureCommand = (rawInput) => {
+    preventGlobalScroll(); // Store scroll position before processing
+    
     // Sanitize and validate input
     const sanitizedInput = sanitizeInput(rawInput);
     const validatedCommand = validateCommand(sanitizedInput);
@@ -250,6 +252,14 @@ const SecureTerminal = ({ onCommand }) => {
         ]
       }]);
       setCommandInput('');
+      
+      // Scroll only within terminal, then restore global position
+      setTimeout(() => {
+        if (terminalContainerRef.current) {
+          terminalContainerRef.current.scrollTop = terminalContainerRef.current.scrollHeight;
+        }
+        restoreScrollPosition();
+      }, 50);
       return;
     }
 
@@ -266,6 +276,14 @@ const SecureTerminal = ({ onCommand }) => {
     }
     
     setCommandInput('');
+    
+    // Scroll only within terminal, then restore global position
+    setTimeout(() => {
+      if (terminalContainerRef.current) {
+        terminalContainerRef.current.scrollTop = terminalContainerRef.current.scrollHeight;
+      }
+      restoreScrollPosition();
+    }, 50);
   };
 
   const handleKeyPress = (e) => {
