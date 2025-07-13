@@ -317,7 +317,19 @@ const SecureTerminal = ({ onCommand }) => {
       </div>
       
       {/* Terminal Content */}
-      <div className="p-4 sm:p-6 h-64 sm:h-80 font-mono text-green-400 text-sm bg-black retro-screen overflow-y-auto">
+      <div 
+        ref={terminalContainerRef}
+        className="p-4 sm:p-6 h-64 sm:h-80 font-mono text-green-400 text-sm bg-black retro-screen overflow-y-auto"
+        style={{
+          scrollBehavior: 'smooth',
+          // Prevent any scroll events from bubbling up
+          isolation: 'isolate'
+        }}
+        onScroll={(e) => {
+          // Prevent scroll events from bubbling to parent
+          e.stopPropagation();
+        }}
+      >
         <div className="whitespace-pre-wrap">
           {commandHistory.map((entry, idx) => (
             <div key={idx} className="mb-1">
