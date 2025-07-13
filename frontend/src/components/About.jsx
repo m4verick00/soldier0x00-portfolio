@@ -76,12 +76,10 @@ const About = () => {
                   <div className="border-l-4 border-green-400 pl-6">
                     <h4 className="font-semibold text-white font-mono">Master of Business Administration</h4>
                     <p className="text-gray-400 font-mono">Information Technology Management</p>
-                    <p className="text-green-400 text-sm font-mono">Jain University, Bengaluru</p>
                   </div>
                   <div className="border-l-4 border-cyan-400 pl-6">
                     <h4 className="font-semibold text-white font-mono">Bachelor in Computer Science</h4>
                     <p className="text-gray-400 font-mono">Computer Science & Electronics</p>
-                    <p className="text-cyan-400 text-sm font-mono">Sri Krishnadevaraya University</p>
                   </div>
                 </div>
               </div>
