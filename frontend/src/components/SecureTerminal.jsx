@@ -221,7 +221,7 @@ const SecureTerminal = ({ onCommand }) => {
       </div>
       
       {/* Terminal Content */}
-      <div className="p-4 sm:p-6 h-64 sm:h-80 font-mono text-green-400 text-xs sm:text-sm bg-black retro-screen overflow-y-auto">
+      <div className="p-4 sm:p-6 h-64 sm:h-80 font-mono text-green-400 text-xs bg-black retro-screen overflow-y-auto">
         <div className="whitespace-pre-wrap">
           {commandHistory.map((entry, idx) => (
             <div key={idx}>
