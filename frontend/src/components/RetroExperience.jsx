@@ -55,37 +55,19 @@ const RetroExperience = () => {
         'Architected and maintained backend infrastructure for AIsaac proprietary SIEM & SOAR platform',
         'Utilized Apache NiFi for data integration, managed scalable infrastructure on Azure and AWS, optimized RabbitMQ for improved throughput',
         'Deployed high-availability Kubernetes cluster on AWS using EKS for enterprise-scale security operations',
+        '🏅 PARIS 2024 OLYMPICS CRITICAL PROJECT: Selected as part of elite 7-member AIsaac Threat Management (Connector Engineering) team supporting Paris 2024 Olympics cybersecurity operations',
+        '🥇 Engineered and optimized Java-based connectors and log parsers for critical infrastructure protection during the Olympic Games, maintaining 99.99% uptime',
         'Employed in-house SIEM tools for threat detection and log analysis, handling incidents for diverse devices including EDR, XDR, Firewalls, and Office 365 services',
         'Managed client cases on Wrike and ServiceNOW, achieving 96% SLA, and created KBS articles for complex issues',
         'Demonstrated expertise in troubleshooting system fundamentals while implementing Prometheus for proactive monitoring, incident response, and vulnerability patching'
       ],
-      technologies: ['AIsaac SIEM', 'Apache NiFi', 'Kubernetes', 'AWS', 'Azure', 'RabbitMQ', 'Prometheus', 'DevSecOps'],
+      technologies: ['AIsaac SIEM', 'Apache NiFi', 'Kubernetes', 'AWS', 'Azure', 'RabbitMQ', 'Prometheus', 'DevSecOps', 'Java', 'Critical Infrastructure'],
       achievements: [
         'Designed end-to-end SIEM architecture understanding applicable to any enterprise security platform',
         'Optimized log processing throughput by 40% through custom connector development',
+        '🏆 PARIS 2024 OLYMPICS: 99.99% uptime for critical log parsing systems during Olympic Games with zero security incidents',
+        'Part of elite 7-member engineering team for global-scale cybersecurity operations',
         'Gained comprehensive understanding of SIEM data flows and threat detection pipelines'
-      ]
-    },
-    {
-      title: 'Connector Engineering (Paris 2024 Olympics)',
-      company: 'AIsaac Threat Management & Cloud R&D',
-      location: 'Bengaluru, IN', 
-      period: 'DevSecOps - Paris 2024 Olympics Project',
-      type: 'Critical Infrastructure & Log Processing Engineering',
-      highlights: [
-        'Selected as part of elite 7-member AIsaac Threat Management (Connector Engineering) team supporting Paris 2024 Olympics cybersecurity operations',
-        'Engineered and optimized Java-based connectors and log parsers for critical infrastructure protection during the Olympic Games',
-        'Handled complex log parsing workflows ensuring uninterrupted data flow and real-time visibility to Security Operations Centre',
-        'Contributed to Atos role as Official Cybersecurity Services and Operations Supporter for Paris 2024 Olympics and Paralympics',
-        'Optimized application performance and implemented enhancements resulting in 30% increase in log processing speed',
-        'Maintained 99.99% uptime for critical log parsing systems during peak Olympic event periods, ensuring zero security incidents'
-      ],
-      technologies: ['Java', 'Log Processing', 'AIsaac Connectors', 'Real-time Analytics', 'Application Optimization', 'Critical Infrastructure'],
-      achievements: [
-        '99.99% uptime for critical log parsing systems during Olympic Games',
-        '30% increase in log processing speed through optimization',
-        'Zero security incidents during Olympic Games period',
-        'Part of elite 7-member engineering team for global-scale cybersecurity operations'
       ]
     }
   ];
