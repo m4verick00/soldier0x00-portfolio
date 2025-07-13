@@ -1,16 +1,34 @@
 import React from 'react';
 
-// Import components gradually to test
+// Import all components back
 import Navigation from './Navigation';
 import InteractiveTerminalHero from './InteractiveTerminalHero';
+import About from './About';
+import RetroExperience from './RetroExperience';
+import RetroSkills from './RetroSkills';
+import RetroProjects from './RetroProjects';
+import ThreatConsolePanel from './ThreatConsolePanel';
+import YouTubeFavorites from './YouTubeFavorites';
+import Blog from './Blog';
+import Contact from './Contact';
+import SecurityAlert from './SecurityAlert';
 
 const ThemedHome = () => {
   return (
     <div className="min-h-screen bg-black text-white transition-colors duration-500">
+      <SecurityAlert />
       <Navigation />
       <InteractiveTerminalHero />
+      <About />
+      <RetroExperience />
+      <RetroSkills />
+      <RetroProjects />
+      <ThreatConsolePanel />
+      <YouTubeFavorites />
+      <Blog />
+      <Contact />
       
-      {/* Footer for testing */}
+      {/* Footer */}
       <footer className="bg-black border-t border-green-400/30 py-8 retro-section transition-colors duration-500">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
