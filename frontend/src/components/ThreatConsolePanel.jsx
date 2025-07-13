@@ -349,10 +349,10 @@ const ThreatConsolePanel = () => {
               <div className={`grid md:grid-cols-2 gap-4 text-sm font-mono ${
                 isDarkMode ? 'text-gray-400' : 'text-gray-600'
               }`}>
-                <div>• Have I Been Pwned – Pwned Passwords API (CC‑BY)</div>
+                <div>• Have I Been Pwned – Breach checking API</div>
                 <div>• NVD / MITRE – CVE vulnerability database</div>
                 <div>• AlienVault OTX – Open Threat Exchange</div>
-                <div>• Digital Attack Map – Jigsaw & Arbor Networks</div>
+                <div>• Kaspersky – Real-time cyber threat map</div>
               </div>
               <div className={`mt-4 text-xs opacity-60 ${
                 isDarkMode ? 'text-gray-500' : 'text-gray-500'
