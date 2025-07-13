@@ -166,9 +166,12 @@ const InteractiveTerminalHero = () => {
             </div>
           </div>
 
-          {/* Right Side - Secure Interactive Terminal */}
+          {/* Right Side - Enhanced Interactive Terminal */}
           <div className="order-1 lg:order-2">
-            <SecureTerminal onCommand={handleTerminalCommand} />
+            <EnhancedTerminal 
+              onCommand={handleTerminalCommand}
+              className="shadow-2xl shadow-green-400/20"
+            />
           </div>
         </div>
       </div>
