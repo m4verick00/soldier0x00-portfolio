@@ -387,7 +387,7 @@ const EnhancedTerminal = ({ onCommand, className = "" }) => {
 
     // Add to history
     setCommandHistory(prev => [...prev, {
-      command: `${fileSystem.pwd()} $ ${sanitizedInput}`,
+      command: sanitizedInput,
       output: Array.isArray(output) ? output : [output],
       timestamp: new Date().toLocaleTimeString()
     }]);
