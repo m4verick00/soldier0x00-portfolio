@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '../contexts/ThemeContext';
 
 // Import components
 import Navigation from './Navigation';
@@ -12,12 +11,9 @@ import ThreatConsolePanel from './ThreatConsolePanel';
 import YouTubeFavorites from './YouTubeFavorites';
 import Blog from './Blog';
 import Contact from './Contact';
-import ThemeToggle from './ThemeToggle';
 import SecurityAlert from './SecurityAlert';
 
 const ThemedHome = () => {
-  const { isDarkMode } = useTheme();
-  
   return (
     <div className="min-h-screen bg-black text-white transition-colors duration-500">
       <SecurityAlert />
