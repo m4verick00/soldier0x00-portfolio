@@ -18,8 +18,6 @@ import ThemeToggle from "./components/ThemeToggle";
 
 import { useTheme } from "./contexts/ThemeContext";
 
-import { useTheme } from "./contexts/ThemeContext";
-
 const Home = () => {
   const { isDarkMode } = useTheme();
   
