@@ -152,7 +152,40 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-1 gap-12">
+            {/* Contact Methods Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {contactMethods.map((method, index) => {
+                const bgColors = {
+                  green: 'from-green-500/20 to-emerald-500/20 border-green-400/30',
+                  blue: 'from-blue-500/20 to-cyan-500/20 border-blue-400/30',
+                  cyan: 'from-cyan-500/20 to-teal-500/20 border-cyan-400/30',
+                  pink: 'from-pink-500/20 to-rose-500/20 border-pink-400/30',
+                  orange: 'from-orange-500/20 to-yellow-500/20 border-orange-400/30',
+                  purple: 'from-purple-500/20 to-indigo-500/20 border-purple-400/30'
+                };
+
+                return (
+                  <a
+                    key={index}
+                    href={method.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block bg-gradient-to-br ${bgColors[method.color]} border rounded-lg p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl group`}
+                  >
+                    <div className="text-center">
+                      <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
+                        {method.icon}
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">{method.title}</h3>
+                      <p className="text-gray-300 mb-2">{method.value}</p>
+                      <p className="text-gray-400 text-sm">{method.description}</p>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
             {/* Contact Form */}
             <div className="bg-black/40 backdrop-blur-sm border border-cyan-400/20 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
