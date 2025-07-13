@@ -131,22 +131,7 @@ const LiveThreatCounter = () => {
     });
   };
 
-  const fetchSimulatedData = async () => {
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    const currentHour = new Date().getHours();
-    const baseRecent = 25 + (currentHour % 10); // Varies by time
-    const recentCount = Math.floor(Math.random() * 20) + baseRecent;
-    
-    setCveData({
-      totalCVEs: 301687,
-      recentCVEs: recentCount,
-      loading: false,
-      lastUpdated: new Date(),
-      error: null
-    });
-  };
+
 
   useEffect(() => {
     // Initial fetch
