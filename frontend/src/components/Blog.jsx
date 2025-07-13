@@ -58,26 +58,20 @@ const Blog = () => {
     {
       title: 'Advanced Threat Hunting: Beyond Traditional SIEM',
       excerpt: 'Exploring next-generation threat hunting techniques using behavioral analytics and machine learning to detect sophisticated adversaries.',
-      date: '2025-01-15',
-      readTime: '8 min read',
       tags: ['Threat Hunting', 'SIEM', 'Machine Learning', 'APT'],
       status: 'coming-soon',
       category: 'Threat Hunting'
     },
     {
-      title: 'Building TAG: AI Guardian for Cybersecurity',
-      excerpt: 'Journey of creating The Autonomous Guardian (TAG) for cybersecurity operations, lessons learned, and practical implementation strategies.',
-      date: '2025-01-20',
-      readTime: '12 min read',
-      tags: ['AI', 'Cybersecurity', 'Automation', 'Python'],
+      title: 'Autonomous AI Research Project',
+      excerpt: 'Research into autonomous artificial intelligence systems for cybersecurity applications and their potential impact on defensive operations.',
+      tags: ['AI Research', 'Cybersecurity', 'Automation', 'Innovation'],
       status: 'coming-soon',
       category: 'AI & Security'
     },
     {
       title: 'MITRE ATT&CK in Practice: Real-world Threat Modeling',
       excerpt: 'Practical guide to implementing MITRE ATT&CK framework for threat modeling and detection engineering in enterprise environments.',
-      date: '2025-02-05',
-      readTime: '10 min read',
       tags: ['MITRE ATT&CK', 'Threat Modeling', 'Detection Engineering'],
       status: 'coming-soon',
       category: 'Frameworks'
@@ -85,8 +79,6 @@ const Blog = () => {
     {
       title: 'Olympics 2024: Securing Global Events',
       excerpt: 'Behind the scenes of cybersecurity operations for Paris 2024 Olympics - challenges, solutions, and lessons for critical infrastructure protection.',
-      date: '2025-02-15',
-      readTime: '15 min read',
       tags: ['Critical Infrastructure', 'Event Security', 'Olympics', 'SOC'],
       status: 'coming-soon',
       category: 'Case Studies'
@@ -94,8 +86,6 @@ const Blog = () => {
     {
       title: 'Data Integration Meets Cybersecurity',
       excerpt: 'How middleware technologies and data pipeline integration enhance cybersecurity operations and threat intelligence workflows.',
-      date: '2025-01-25',
-      readTime: '11 min read',
       tags: ['Data Integration', 'Middleware', 'Threat Intelligence', 'Pipelines'],
       status: 'coming-soon',
       category: 'Data Security'
@@ -103,8 +93,6 @@ const Blog = () => {
     {
       title: 'Voice-Controlled Security: Building ITACHI',
       excerpt: 'Developing ITACHI - an intelligent voice automation system for hands-free computing and advanced task automation.',
-      date: '2025-02-20',
-      readTime: '9 min read',
       tags: ['Voice Control', 'Automation', 'AI Assistant', 'Innovation'],
       status: 'coming-soon',
       category: 'AI & Automation'
