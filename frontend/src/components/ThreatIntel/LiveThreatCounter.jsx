@@ -56,9 +56,6 @@ const LiveThreatCounter = () => {
         case 'circl':
           await fetchCIRCLData(thirtyDaysAgoStr, todayStr);
           break;
-        case 'simulated':
-          await fetchSimulatedData();
-          break;
         default:
           await fetchNVDData(thirtyDaysAgoStr, todayStr);
       }
