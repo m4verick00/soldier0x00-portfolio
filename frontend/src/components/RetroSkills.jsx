@@ -117,37 +117,42 @@ const RetroSkills = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,0,0.1),transparent_50%)]"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Retro Section Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-16 sm:mb-20">
             <div className="inline-block mb-6">
-              <span className="text-sm uppercase tracking-widest text-green-400 font-bold retro-label">SKILL_TREE.db</span>
+              <span className="text-xs sm:text-sm uppercase tracking-widest text-green-400 font-bold retro-label">SKILL_TREE.db</span>
             </div>
-            <h2 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight retro-title">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight retro-title">
               neural
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400 neon-glow">inventory.sys</span>
             </h2>
             <div className="w-16 h-1 bg-green-400 mx-auto neon-glow mb-6"></div>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-mono">
+            <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto font-mono px-4">
               A comprehensive arsenal of cybersecurity tools, frameworks, and emerging technologies
             </p>
           </div>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12 px-2">
             {Object.entries(skillCategories).map(([key, category]) => (
               <button
                 key={key}
                 onClick={() => setActiveCategory(key)}
-                className={`px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:-translate-y-1 retro-button font-mono tracking-wider ${
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-bold transition-all duration-300 transform hover:-translate-y-1 retro-button font-mono tracking-wider text-xs sm:text-sm min-h-[48px] focus:outline-none focus:ring-2 focus:ring-green-400/50 ${
                   activeCategory === key
                     ? 'bg-green-500 text-black shadow-lg shadow-green-500/50 neon-glow'
                     : 'bg-black/40 backdrop-blur-sm border border-green-400/30 text-green-400 hover:bg-green-400/10'
                 }`}
               >
-                <span className="mr-2">{category.icon}</span>
+                <span className="mr-1 sm:mr-2">{category.icon}</span>
+                <span className="hidden sm:inline">{category.title}</span>
+                <span className="sm:hidden">{key.toUpperCase()}</span>
+              </button>
+            ))}
+          </div>
                 {category.title}
               </button>
             ))}

@@ -60,23 +60,23 @@ const Contact = () => {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               <span className="text-cyan-400">contact</span>
               <span className="text-white">.</span>
               <span className="text-green-400">connect()</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto mb-6"></div>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
               Let's collaborate on cybersecurity projects, share threat intelligence, or discuss the future of AI in security
             </p>
           </div>
 
           {/* Contact Methods Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {contactMethods.map((method, index) => {
               const bgColors = {
                 green: 'from-green-500/20 to-emerald-500/20 border-green-400/30',
@@ -93,15 +93,15 @@ const Contact = () => {
                   href={method.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`block bg-gradient-to-br ${bgColors[method.color]} border rounded-lg p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl group`}
+                  className={`block bg-gradient-to-br ${bgColors[method.color]} border rounded-lg p-4 sm:p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl group min-h-[48px] focus:outline-none focus:ring-2 focus:ring-cyan-400/50`}
                 >
                   <div className="text-center">
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">
+                    <div className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
                       {method.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2">{method.title}</h3>
-                    <p className="text-gray-300 mb-2">{method.value}</p>
-                    <p className="text-gray-400 text-sm">{method.description}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{method.title}</h3>
+                    <p className="text-gray-300 mb-2 text-sm sm:text-base break-words">{method.value}</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">{method.description}</p>
                   </div>
                 </a>
               );

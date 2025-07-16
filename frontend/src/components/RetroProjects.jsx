@@ -232,15 +232,15 @@ const RetroProjects = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Retro Section Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-16 sm:mb-20">
             <div className="inline-block mb-6">
-              <span className="text-sm uppercase tracking-widest text-purple-400 font-bold retro-label">PROJECT_FILES.dir</span>
+              <span className="text-xs sm:text-sm uppercase tracking-widest text-purple-400 font-bold retro-label">PROJECT_FILES.dir</span>
             </div>
             <h2 
-              className={`text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight retro-title cursor-pointer ${glitchActive ? 'glitch' : ''}`}
+              className={`text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight retro-title cursor-pointer ${glitchActive ? 'glitch' : ''}`}
               onClick={triggerGlitch}
               data-text="cyber.projects"
             >
@@ -249,35 +249,41 @@ const RetroProjects = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 neon-glow">projects.exe</span>
             </h2>
             <div className="w-16 h-1 bg-purple-400 mx-auto neon-glow mb-6"></div>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-mono">
+            <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto font-mono px-4">
               Strategic initiatives in cybersecurity, AI development, and critical infrastructure protection
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Project Navigation */}
             <div className="lg:col-span-1">
-              <div className="bg-black/80 backdrop-blur-sm border-2 border-purple-400/30 rounded-lg p-6 sticky top-8 retro-card">
-                <h3 className="text-xl font-bold text-purple-400 mb-6 tracking-wider font-mono">PROJECT.PORTFOLIO</h3>
-                <div className="space-y-4">
+              <div className="bg-black/80 backdrop-blur-sm border-2 border-purple-400/30 rounded-lg p-4 sm:p-6 sticky top-8 retro-card">
+                <h3 className="text-lg sm:text-xl font-bold text-purple-400 mb-4 sm:mb-6 tracking-wider font-mono">PROJECT.PORTFOLIO</h3>
+                <div className="space-y-2 sm:space-y-4">
                   {projects.map((project, index) => {
                     const colors = getColorClasses(project.color);
                     return (
                       <button
                         key={index}
                         onClick={() => setActiveProject(index)}
-                        className={`w-full text-left p-4 rounded-lg transition-all duration-300 font-mono ${
+                        className={`w-full text-left p-3 sm:p-4 rounded-lg transition-all duration-300 font-mono min-h-[48px] focus:outline-none focus:ring-2 focus:ring-purple-400/50 ${
                           activeProject === index
                             ? `${colors.bg} border-l-4 ${colors.border} text-white`
                             : 'bg-black/20 border-l-4 border-transparent text-gray-400 hover:bg-purple-500/10 hover:text-white'
                         }`}
                       >
-                        <div className="flex items-center space-x-3 mb-2">
-                          <span className="text-xl">{project.icon}</span>
-                          <span className="font-semibold text-sm tracking-wider">{project.title}</span>
+                        <div className="flex items-center space-x-2 sm:space-x-3 mb-2">
+                          <span className="text-base sm:text-xl flex-shrink-0">{project.icon}</span>
+                          <span className="font-semibold text-xs sm:text-sm tracking-wider break-words">{project.title}</span>
                         </div>
                         <div className={`text-xs ${colors.text} tracking-wider`}>{project.category}</div>
                         <div className="text-xs text-gray-500 font-mono">[{project.status}]</div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
                       </button>
                     );
                   })}
