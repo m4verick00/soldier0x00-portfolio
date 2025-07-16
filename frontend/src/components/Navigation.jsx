@@ -103,8 +103,9 @@ const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-3 min-h-[48px] min-w-[48px] flex items-center justify-center"
-              aria-label="Toggle mobile menu"
+              className="md:hidden text-white p-2 min-h-[48px] min-w-[48px] flex items-center justify-center rounded-md hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+              aria-label={isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+              aria-expanded={isMobileMenuOpen}
             >
               <div className="relative w-6 h-6">
                 <span className={`absolute block w-full h-0.5 bg-current transition-all duration-300 ${
@@ -129,19 +130,29 @@ const Navigation = () => {
         }`}>
           <div className="bg-black/95 backdrop-blur-md border-t border-cyan-400/20">
             <div className="container mx-auto px-4 sm:px-6 py-4">
-              <div className="space-y-2">
-                {navItems.map((item) => (
+              <div className="space-y-1">
+                {navItems.map((item, index) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.href, item.external)}
-                    className={`block w-full text-left px-4 py-4 rounded-lg transition-all duration-300 hover:bg-cyan-400/10 min-h-[48px] flex items-center ${
+                    className={`block w-full text-left px-4 py-4 rounded-lg transition-all duration-300 hover:bg-cyan-400/10 min-h-[48px] flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-cyan-400/50 ${
                       activeSection === item.id 
                         ? 'text-cyan-400 bg-cyan-400/10' 
                         : 'text-gray-300'
                     }`}
+                    tabIndex={isMobileMenuOpen ? 0 : -1}
+                    style={{ transitionDelay: `${index * 50}ms` }}
                   >
                     <span className="font-medium">{item.label}</span>
-                    {item.external && <span className="ml-2 text-xs">↗</span>}
+                    {item.external && (
+                      <span className="text-xs opacity-60">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15,3 21,3 21,9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
@@ -154,7 +165,8 @@ const Navigation = () => {
       {isScrolled && (
         <button
           onClick={() => scrollToSection('#')}
-          className="fixed bottom-8 right-8 z-40 w-12 h-12 bg-cyan-500 text-black rounded-full shadow-lg hover:bg-cyan-400 hover:scale-110 transition-all duration-300 hover:shadow-cyan-500/50"
+          className="fixed bottom-6 right-6 z-40 w-12 h-12 bg-cyan-500 text-black rounded-full shadow-lg hover:bg-cyan-400 hover:scale-110 transition-all duration-300 hover:shadow-cyan-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 active:scale-95"
+          aria-label="Scroll to top"
         >
           <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />

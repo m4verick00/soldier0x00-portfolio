@@ -29,7 +29,41 @@
   --glow-secondary: rgba(0, 119, 170, 0.15);
 }
 
-/* Mobile-specific optimizations */
+/* Global mobile-first optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevent horizontal scrolling on all devices */
+  overflow-x: hidden;
+  /* Improve tap highlighting */
+  -webkit-tap-highlight-color: rgba(0, 255, 0, 0.2);
+  /* Optimize text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent zoom on input focus in iOS */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  /* Ensure proper viewport handling */
+  width: 100%;
+  max-width: 100vw;
+  /* Improve scrolling performance */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Universal touch targets for accessibility */
+button, a, input, select, textarea, [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+  /* Improve touch feedback */
+  -webkit-tap-highlight-color: rgba(0, 255, 0, 0.2);
+}
+
+/* Enhanced mobile optimizations */
 @media (max-width: 768px) {
   /* Prevent horizontal overflow */
   html, body {
@@ -40,13 +74,14 @@
   /* Ensure all containers respect viewport width */
   * {
     max-width: 100%;
-    box-sizing: border-box;
   }
   
-  /* Mobile touch targets */
-  button, a, input, select {
+  /* Enhanced touch targets for mobile */
+  button, a, input, select, textarea, [role="button"] {
     min-height: 48px;
     min-width: 48px;
+    /* Add padding for better touch area */
+    padding: 0.75rem 1rem;
   }
   
   /* Improve mobile spacing */
@@ -59,12 +94,104 @@
   .retro-terminal {
     max-width: calc(100vw - 2rem);
     margin: 0 auto;
+    /* Prevent text selection issues */
+    -webkit-user-select: none;
+    user-select: none;
   }
   
   /* Mobile font scaling */
   .retro-terminal .font-mono {
     font-size: clamp(14px, 4vw, 16px);
     line-height: 1.4;
+  }
+  
+  /* Reduce animation intensity on mobile */
+  .retro-terminal {
+    animation: none;
+  }
+  
+  /* Optimize neon effects for mobile */
+  .neon-glow {
+    text-shadow: 
+      0 0 3px currentColor,
+      0 0 6px currentColor;
+  }
+  
+  /* Simplify glitch effects on mobile */
+  .glitch::before,
+  .glitch::after {
+    display: none;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  button, a, input, select, textarea, [role="button"] {
+    min-height: 46px;
+    min-width: 46px;
+  }
+}
+
+/* Social media app browser optimizations */
+@media (max-width: 480px) {
+  /* Instagram, TikTok, etc. often have smaller viewports */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Ensure readability in small browsers */
+  .retro-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .retro-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  /* Optimize cards for small screens */
+  .retro-card {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Simplify navigation for small screens */
+  .retro-nav-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Reduce spacing for small screens */
+  .retro-section {
+    padding: 1.5rem 0;
+  }
+}
+
+/* Ultra-small screens (older phones, smartwatches) */
+@media (max-width: 320px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .retro-title {
+    font-size: 1.25rem;
+  }
+  
+  .retro-text {
+    font-size: 0.8rem;
+  }
+  
+  .retro-button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -382,18 +509,108 @@
   opacity: 0.1;
 }
 
+/* Performance optimizations for mobile and social media browsers */
+@media (max-width: 768px) {
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Optimize animations for mobile */
+  .animate-pulse {
+    animation-duration: 2s;
+  }
+  
+  .animate-bounce {
+    animation-duration: 1.5s;
+  }
+  
+  /* Disable expensive animations on mobile */
+  .retro-terminal {
+    animation: none !important;
+  }
+  
+  /* Optimize shadows for performance */
+  .shadow-2xl {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Social media app specific optimizations */
+@media (max-width: 480px) {
+  /* Disable expensive effects in social media browsers */
+  .neon-glow {
+    text-shadow: 0 0 5px currentColor;
+  }
+  
+  /* Optimize hover states for touch */
+  .hover\:scale-105:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Ensure proper touch scroll behavior */
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Optimize focus states for mobile */
+  .focus\:ring-4:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+  }
+}
+
 /* Responsive Retro */
 @media (max-width: 768px) {
   .retro-title {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.2;
   }
   
   .retro-button {
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
     padding: 0.75rem 1.5rem;
   }
   
   .retro-card {
     padding: 1rem;
   }
+  
+  .retro-nav-item {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-green-400 {
+    color: #00ff00 !important;
+  }
+  
+  .text-cyan-400 {
+    color: #00ffff !important;
+  }
+  
+  .border-green-400\/30 {
+    border-color: #00ff00 !important;
+  }
+}
+
+/* Dark mode support for system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #000000;
+    --text-primary: #ffffff;
+  }
+}
+
+/* Force hardware acceleration for smooth animations */
+.retro-terminal,
+.retro-card,
+.retro-button {
+  will-change: transform;
+  transform: translateZ(0);
 }

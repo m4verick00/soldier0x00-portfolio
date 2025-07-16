@@ -1,0 +1,78 @@
+{
+  "short_name": "soldier0x00",
+  "name": "soldier0x00 - Cybersecurity Expert & Data Architect",
+  "description": "Cybersecurity expert specializing in threat hunting, data engineering, and AI-powered security solutions.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["cybersecurity", "portfolio", "technology"],
+  "screenshots": [
+    {
+      "src": "screenshot-mobile.png",
+      "type": "image/png",
+      "sizes": "390x844",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshot-desktop.png",
+      "type": "image/png",
+      "sizes": "1920x1080",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "description": "View my cybersecurity projects",
+      "url": "/#projects",
+      "icons": [
+        {
+          "src": "favicon.ico",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "favicon.ico",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ]
+}
